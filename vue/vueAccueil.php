@@ -1,14 +1,6 @@
-<?php
-$rootDirectory = dirname(__FILE__);
+<?=VueHtmlUtils::enTeteHTML5('Accueil','UTF-8',Config::getStyleSheetsURL()['default'])?>
 
-echo "APPLE !!</br>";
+<h2>There is a doctor here ?</h2>
 
-require_once($rootDirectory.'/Classes/commonFunctions.php');
+<?=VueHtmlUtils::finFichierHTML5()?>
 
-
-echo "APPLE !!</br>";
-
-outputEnTeteHTML5('Accueil','UTF-8',null);
-
-outputFinFichierHTML5();
-?>

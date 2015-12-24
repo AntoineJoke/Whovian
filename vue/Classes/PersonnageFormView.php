@@ -1,6 +1,6 @@
 <?php
-require_once ('../../metier/Personnage.php');
-require_once ( dirname (__FILE__).'/FormManager.php');
+//require_once (dirname (__FILE__).'/metier/Personnage.php');
+//require_once ( dirname (__FILE__).'/FormManager.php');
 
 
 class PersonnageFormView {

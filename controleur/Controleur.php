@@ -5,7 +5,7 @@ class Controleur{
 	function __construct()
 		{
 			try {
-				$action=$_REQUEST['action'];
+				$action=isset($_REQUEST['action']) ? $_REQUEST['action'] : "";
 				
 				switch ($action) {
 					case "get":

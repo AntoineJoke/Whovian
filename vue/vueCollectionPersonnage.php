@@ -1,14 +1,8 @@
-<?php
-$rootDirectory = dirname(__FILE__);
-
-require_once($rootDirectory.'/Classes/commonFunctions.php');
-
-outputEnTeteHTML5('Accueil','UTF-8',null);
-?>
+<?=VueHtmlUtils::enTeteHTML5('Accueil','UTF-8',Config::getStyleSheetsURL()['default'])?>
 
 
 <h1>Toutes les adresses</h1>
-<a href="?">Revenir à l'accueil</a>
+/*<a href="?">Revenir à l'accueil</a>
 <?php
 	echo "<table><tbody>";
 	foreach ($modele->getData() as $personnage) {
@@ -21,7 +15,5 @@ outputEnTeteHTML5('Accueil','UTF-8',null);
 
 	}
 	echo"</tbody></table>";
-?>
-<?php
-outputFinFichierHTML5();
-?> 
+?>*/
+<?=VueHtmlUtils::finFichierHTML5()?>

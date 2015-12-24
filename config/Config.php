@@ -4,7 +4,7 @@ class Config
 	public static function getVues(){
 		global $rootDirectory;
 		$vueDirectory = $rootDirectory."vue/";
-		return array("default" => $vueDirectory."vueAccueil.php","saisiePersonnage" => $vueDirectory."vueSaisiePersonnage.php", "editionPersonnage" => $vueDirectory."vueEdtionPersonnage.php", "affichePersonnage" => $vueDirectory."vueAffichePersonnage.php","afficheCollectionPersonnage" => $vueDirectory."vueAfficheCollectionPersonnage.php");
+		return array("default" => $vueDirectory."vueAccueil.php","saisiePersonnage" => $vueDirectory."vueSaisiePersonnage.php", "editionPersonnage" => $vueDirectory."vueEdtionPersonnage.php", "affichePersonnage" => $vueDirectory."vueAffichePersonnage.php","afficheCollectionPersonnage" => $vueDirectory."vueCollectionPersonnage.php");
 	
 	}
 
@@ -17,7 +17,7 @@ class Config
 
 	public static function getStyleSheetsURL(){
 
-		$cssDirectoryURL = "http://".$_SERVER['HTTP_HOST']."/public-html/Whovians.com/css/";
+		$cssDirectoryURL = "http://".$_SERVER['HTTP_HOST']."/~anbassot/Whovian/css/";
 		return array("default" => $cssDirectoryURL."defaultStyle.css");
 
 	}

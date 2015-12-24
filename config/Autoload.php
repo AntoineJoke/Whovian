@@ -35,7 +35,7 @@ class Autoload{
 		
 		$sourceFileName = $class.'.php';
 		
-		$directoryList= array('','config/','modeles/','controleur/','metier/','persistance/','vue/classes/');
+		$directoryList= array('','config/','modeles/','controleur/','metier/','persistance/','vue/Classes/');
 		
 		foreach($directoryList as $subDir){
 			
