@@ -17,7 +17,7 @@ class Config
 
 	public static function getStyleSheetsURL(){
 
-		$cssDirectoryURL = "http://".$_SERVER['HTTP_HOST']."/~anbassot/Whovian/css/";
+		$cssDirectoryURL = "http://"/*.$_SERVER['HTTP_HOST'].*/."/localhost/Whovian/css/";
 		return array("default" => $cssDirectoryURL."defaultStyle.css");
 
 	}

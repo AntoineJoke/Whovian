@@ -12,7 +12,7 @@ html {
 }
 body {
   font-family: helvetica;
-  background: url("http://hina/~anbassot/Whovian/ressources/images/background.jpg") fixed no-repeat;
+  background: url("http://localhost/Whovian/ressources/images/background.jpg") fixed no-repeat;
   background-size: cover;
   padding: 0;
   margin: 0;
