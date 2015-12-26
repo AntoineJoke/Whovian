@@ -19,9 +19,9 @@ class VueHtmlUtils{
 		echo '<nav>';
 		echo '<ul>';
 		echo '<li class="menu"><a href="index.php">Accueil</a></li>';
-		echo '<li class="menu"><a href="vueCollectionArticle.php">News</a></li>';
+		echo '<li class="menu"><a href="'.Config::getVues()["afficheCollectionPersonnage"].'">News</a></li>';
 		echo '<li class="menu"><a href="'.Config::getVues()["afficheCollectionPersonnage"].'">Biographies</a></li>';
-		echo '<li class="menu"><a href="vueIdentifiant.php">Connexion</a></li>';
+		echo '<li class="menu"><a href="'.Config::getVues()["afficheCollectionPersonnage"].'">Connexion</a></li>';
 		echo '</ul>';
 		echo '</nav>';
 		echo '</header>';
