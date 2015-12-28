@@ -1,4 +1,4 @@
-<?
+<?php
 
 class DataBaseManager{ 
 	static private $dbh = null;
@@ -6,15 +6,15 @@ class DataBaseManager{
 	static private $instance = null;
 
 	static private $db_host="mysql:host=localhost;";
-	static private $db_name="dbname=ExampleDataBase";
-	static private $db_user="remy";
-	static private $db_password="my_password";
+	static private $db_name="dbname=whovian";
+	static private $db_user="root";
+	static private $db_password="";
 
 	private function __construct(){
 		try{
-			self::dbh = new PDO(self::$db_host.self::$db_name,self::$db_user,self::$db_password);
+			self::$dbh = new PDO(self::$db_host.self::$db_name,self::$db_user,self::$db_password);
 		}catch(PDOException $e){
-			echo "<p>Erreur de connexion à la base de données.<br/>Vous n'avez pas besoin d'en savoir plus...</p>";
+			echo "<p>Erreur de connexion à la base de données(fichier DataBase).<br/>Vous n'avez pas besoin d'en savoir plus...</p>";
 			die();
 		}
 	}
@@ -40,9 +40,17 @@ class DataBaseManager{
 
 		for($i=1; $i<=$numargs;$i++){
 
-			$statement->bindParam($i,$args)
+			$statement->bindParam($i,$args[$i-1]);
 
 		}
+                $statement->execute();
+                return $statement;
 	}
-
+        public static function destroyQueryResults($statement){
+            $statement->closeCursor();
+            $statement=null;
+        }
+        
+        private function __clone() { }
+}
 ?>

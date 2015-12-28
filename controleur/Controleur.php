@@ -15,11 +15,14 @@ class Controleur{
 						break;
 
 					case "get-all":
+                                           
 						$modele = ModelCollectionPersonnage::getModelPersonnageAll();
-						if ($modele->getError()==false) {
-							require(Config::getVues()["afficheCollectionAdresse"]);
+                                                $a=$modele->getError();
+						if ($modele->getError()===false) {
+							require(Config::getVues()["afficheCollectionPersonnage"]);
 						}else{ 
 							require (Config::getVuesErreur()["default"]);
+                                                        
 						}
 						
 						break;

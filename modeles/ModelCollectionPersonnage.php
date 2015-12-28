@@ -1,8 +1,8 @@
 <?php
 
-$rootDirectory = dirname(__FILE__)."/";
+$modeleDirectory = dirname(__FILE__)."/";
 
-require_once($rootDirectory.'/Model.php');
+require_once($modeleDirectory.'/Model.php');
 
 class ModelCollectionPersonnage extends Model
 {
@@ -12,14 +12,16 @@ class ModelCollectionPersonnage extends Model
 		return $this->collectionPersonnage;
 	}
 
-	private function __construct(){
+	public function __construct(){
 		$this->collectionPersonnage=array();
 		$this->dataError = array();
 	}
 
 	public static function getModelPersonnageAll(){
 		$model = new self(array());
+                
 		$model->collectionPersonnage = PersonnageGateway::getPersonnageAll($model->dataError);
+                
 		return $model;
 	}
 }

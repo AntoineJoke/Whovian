@@ -1,48 +1,63 @@
 <?php
-require_once("./Personnage.php");
+require_once(dirname(__FILE__). '/Personnage.php');
 
 class PersonnageFabrique{ 
-	public static function getPersonnage(&$dataErrors, $numDocteur=null, $anneeDebut=null, $anneeFin=null, $acteur=null, $expFav=null){ 
-		$numDocteur=Personnage::getDefaultPersonnage();
+	public static function getPersonnage(&$dataErrors, $numDocteur=null, $anneeDebut=null, $anneeFin=null, $acteur=null, $expFav=null,$descri=null,$urlImage=null){ 
+            
+		$perso=Personnage::getDefaultPersonnage();
 		$dataErrors=array();
 
 		try{ 
-			$numDocteur->setNumDocteur($numDocteur);
+                    
+			$perso->setNumDocteur($numDocteur);
 		}catch (Exception $e){ 
 			$dataErrors['numDocteur']=$e->getMessage()."<br/>\n";
 
 		}
 
 		try{
-			$anneeDebut->setAnneeDebut($anneeDebut);
+			$perso->setAnneeDebut($anneeDebut);
 		}catch (Exception $e){ 
 			$dataErrors['anneeDebut']=$e->getMessage()."<br/>\n";
 			
 		}
 
 		try{
-			$anneeFin->setAnneeDebut($anneeFin);
+			$perso->setAnneeDebut($anneeFin);
 		}catch (Exception $e){ 
 			$dataErrors['anneeFin']=$e->getMessage()."<br/>\n";
 			
 		}
 
 		try{
-			$acteur->setActeur($acteur);
+			$perso->setActeur($acteur);
 		}catch (Exception $e){ 
 			$dataErrors['acteur']=$e->getMessage()."<br/>\n";
 			
 		}
-
+                
 		try{
-			$expFav->setExpFav($expFav);
+			$perso->setExpFav($expFav);
 		}catch (Exception $e){ 
 			$dataErrors['expFav']=$e->getMessage()."<br/>\n";
 			
 		}
-
-
-		return $numDocteur;
+		
+		try{
+			$perso->setDescri($descri);
+		}catch (Exception $e){ 
+			$dataErrors['descri']=$e->getMessage()."<br/>\n";
+			
+		}
+		
+		try{
+			$perso->setUrlImage($urlImage);
+		}catch (Exception $e){ 
+			$dataErrors['urlImage']=$e->getMessage()."<br/>\n";
+			
+		}
+		
+		return $perso;
 	}
 
 }

@@ -17,7 +17,7 @@ class PersonnageGateway{
 				$count = 0;
 				foreach ($statement as $row) {
 					$count++;
-					$personnage = PersonnageFabrique::getPersonnage($dataError,$row['numDocteur'],$row['anneeDebut'],$row['anneeFin'],$row['acteur'],$row['expFav'],$row['desc'],$row['urlImage']);
+					$personnage = PersonnageFabrique::getPersonnage($dataError,$row['numDocteur'],$row['anneeDebut'],$row['anneeFin'],$row['acteur'],$row['expFav'],$row['descri'],$row['urlImage']);
 
 				}
 
@@ -38,32 +38,42 @@ class PersonnageGateway{
 
 
 	public static function getPersonnageAll(&$dataError){
+            
 		try {
 			
 			$statement = DataBaseManager::getInstance()->prepareAndExecuteQuery('SELECT * FROM Personnage', array());
-
+                         
+                        
 		} catch (Exception $e) {
+                    
 			$dataError['persistance-get'] = "Impossible d'accéder aux données.";
 		}
 
 		$collectionPersonnage = array();
-
+                
+                
 		if($statement!==false){
+                    
 			foreach ($statement as $row) {
-				$personnage = PersonnageFabrique::getPersonnage($dataError,$row['numDocteur'],$row['anneeDebut'],$row['anneeFin'],$row['acteur'],$row['expFav'],$row['desc'],$row['urlImage']);
+               
+				$personnage = PersonnageFabrique::getPersonnage($dataError,$row['numDocteur'],$row['anneeDebut'],$row['anneeFin'],$row['acteur'],$row['expFav'],$row['descri'],$row['urlImage']);
 				$collectionPersonnage[]=$personnage;
+                                
 			}
 		}
 		else{
+                    
 			$dataError['persistance-get'] = "Aucun personnage trouvable.";
 		}
+                
+                
 		DataBaseManager::destroyQueryResults($statement);
-		return $collectionAdresse;
+		return $collectionPersonnage;
 	}
 
 
 	public static function postPersonnage(&$dataError,$personnage){
-		$statement = DataBaseManager::getInstance()->prepareAndExecuteQuery('UPDATE Personnage SET numDocteur=?,anneeDebut=?,anneeFin=?,acteur=?,expFav=?,desc=?,urlImage=? WHERE numDocteur=?', 
+		$statement = DataBaseManager::getInstance()->prepareAndExecuteQuery('UPDATE Personnage SET numDocteur=?,anneeDebut=?,anneeFin=?,acteur=?,expFav=?,descri=?,urlImage=? WHERE numDocteur=?', 
 			array($personnage->getAnneeDebut(),
 					$personnage->getAnneeFin(),
 					$personnage->getActeur(),
@@ -90,7 +100,7 @@ class PersonnageGateway{
 
 		while($statement == false && $count<=3){
 			$count++;
-			$statement = DataBaseManager::getInstance()->prepareAndExecuteQuery('INSERT INTO Personnage(numDocteur,anneeDebut,anneeFin,acteur,expFav,desc,urlImage) VALUES(?,?,?,?,?,?,?)',
+			$statement = DataBaseManager::getInstance()->prepareAndExecuteQuery('INSERT INTO Personnage(numDocteur,anneeDebut,anneeFin,acteur,expFav,descri,urlImage) VALUES(?,?,?,?,?,?,?)',
 				array(
 					$personnage->getNumDocteur(),
 					$personnage->getAnneeDebut(),

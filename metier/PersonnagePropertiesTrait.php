@@ -1,10 +1,9 @@
 <?php
 
-
 trait PersonnageProperties{ 
-
+    
 	public function getNumDocteur(){
-		return $this->numDoctor;
+		return $this->numDocteur;
 	}
 
 	public function getAnneeDebut(){
@@ -22,50 +21,76 @@ trait PersonnageProperties{
 	public function getExpFav(){
 		return $this->expFav;
 	}
+	
+	public function getDescri(){
+		return $this->descri;
+	}
+
+	public function getUrlImage(){
+		return $this->urlImage;
+	}
+
 
 	public function setNumDocteur($numDocteur){ 
-		global $regex_FR_LANG_WITH_NUMBERS;
-		if(!isValidString($numDocteur,regex_FR_LANG_WITH_NUMBERS,1,8)){
-			throw new Exception("Erreur ... ... ..."." (...)");
+		if(!ExpressionsRegexUtils::isValidRegexFrLang($numDocteur,1,10)){
+                    
+			throw new Exception("Erreur le numéro du docteur doit comporter au plus 10 caractères"." (alphabétiques)");
 
 		}
+                
 		$this->numDocteur =empty($numDocteur) ? "" : $numDocteur;
 	}
 
 	public function setAnneeDebut($anneeDebut){ 
-		global $regex_FR_LANG_WITH_NUMBERS;
-		if(!isValidString($anneeDebut,regex_FR_LANG_WITH_NUMBERS,1,10)){
-			throw new Exception("Erreur ... ... ..."." (...)");
+		if(!ExpressionsRegexUtils::isValidRegexFrLangWithNumbers($anneeDebut,4,4)){
+			throw new Exception("Erreur l'année de début doit comporter 4 caractères"." (chiffres)");
 
 		}
 		$this->anneeDebut =empty($anneeDebut) ? "" : $anneeDebut;
 	}
 
 	public function setAnneeFin($anneeFin){ 
-		global $regex_FR_LANG_WITH_NUMBERS;
-		if(!isValidString($anneeFin,regex_FR_LANG_WITH_NUMBERS,1,10)){
-			throw new Exception("Erreur ... ... ..."." (...)");
+		if(!ExpressionsRegexUtils::isValidRegexFrLangWithNumbers($anneeFin,4,4)){
+			throw new Exception("Erreur l'année de fin doit comporter 4 caractères"." (chiffres)");
 
 		}
 		$this->anneeFin =empty($anneeFin) ? "" : $anneeFin;
 	}
 
 	public function setActeur($acteur){ 
-		global $regex_FR_LANG_WITH_NUMBERS;
-		if(!isValidString($acteur,regex_FR_LANG_WITH_NUMBERS,1,10)){
-			throw new Exception("Erreur ... ... ..."." (...)");
+		if(!ExpressionsRegexUtils::isValidRegexFrLang($acteur,1,50)){
+			throw new Exception("Erreur l'acteur doit comporter au plus 50 caractères"." (alphabétiques)");
 
 		}
 		$this->acteur =empty($acteur) ? "" : $acteur;
 	}
 
 	public function setExpFav($expFav){ 
-		global $regex_FR_LANG_WITH_NUMBERS;
-		if(!isValidString($expFav,regex_FR_LANG_WITH_NUMBERS,1,10)){
-			throw new Exception("Erreur ... ... ..."." (...)");
+		if(!ExpressionsRegexUtils::isValidRegexFrLangWithNumbers($expFav,1,200)){
+			throw new Exception("Erreur l'expression favorite doit comporter au plus 200 caractères"." (alphabétiques, chiffres ou &#-_+=)");
 
 		}
 		$this->expFav =empty($expFav) ? "" : $expFav;
+	}
+	
+	public function setDescri($descri){
+            if(!ExpressionsRegexUtils::isValidRegexFrLangWithNumbers($descri,1,500)){
+			throw new Exception("Erreur la description doit comporter au plus 500 caractères"." (alphabétiques, chiffres ou &#-_+=)");
+
+		}
+		$this->descri =empty($descri) ? "" : $descri;
+	}
+	
+	public function seturlImage($urlImage){ 
+            if($urlImage==NULL){
+                $this->urlImage =" ";
+                return;
+            }
+		if(!ExpressionsRegexUtils::isValidRegexFrLangWithNumbers($urlImage,1,200)){
+			throw new Exception("Erreur l'url de l'Image doit comporter au plus 200 caractères"." (alphabétiques ou chiffres)");
+
+		}
+		$this->urlImage =empty($urlImage) ? "" : $urlImage;
 	}
 
 }

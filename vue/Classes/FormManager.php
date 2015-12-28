@@ -8,8 +8,10 @@
 
 class FormManager {
 	public static function beginForm($method, $action , $css_class="", $extraOptions="") {
-	 if (!empty($css_class)) $css_class_option = "class=\"". $css_class ."\" ";
-	  return "<form method=\"".$method."\" action=\"". $action ."\" ". $css_class_option.$extraOptions.">\n";
+            if (!empty($css_class)) {
+                $css_class_option = "class=\"" . $css_class . "\" ";
+            }
+        return "<form method=\"".$method."\" action=\"". $action ."\" ". $css_class_option.$extraOptions.">\n";
 	   }
 	    public static function endForm() { 
 	    	return "</form>";

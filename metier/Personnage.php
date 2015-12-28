@@ -1,10 +1,12 @@
 <?php
-require_once(dirname(__FILE__). '/ ExpressionsRegexUtils .php') ;
-require_once(dirname(__FILE__). '/ PersonnagePropertiesTrait .php') ;
+
+require_once(dirname(__FILE__). '/ExpressionsRegexUtils.php') ;
+require_once(dirname(__FILE__). '/PersonnagePropertiesTrait.php') ;
+
 
 class Personnage{ 
 
-	private $numDoctor;
+	private $numDocteur;
 
 	private $anneeDebut;
 
@@ -13,19 +15,28 @@ class Personnage{
 	private $acteur;
 
 	private $expFav;
+	
+	private $descri;
+	
+	private $urlImage;
 
 	use PersonnageProperties;
 
-	public function __construct($numDotor,$anneeDebut,$anneeFin,$acteur,$expFav){ 
-		$this->setNumDoctor($numDocotor);
+	public function __construct($numDocteur,$anneeDebut,$anneeFin,$acteur,$expFav,$descri,$urlImage){
+		$this->setNumDocteur($numDocteur);
 		$this->setAnneeDebut($anneeDebut);
 		$this->setAnneeFin($anneeFin);
 		$this->setActeur($acteur);
 		$this->setExpFav($expFav);
+		$this->setDescri($descri);
+                $this->setUrlImage($urlImage);
+      
 	} 
 
 	public static function getDefaultPersonnage(){ 
-		$personnage=new Personnage('0','today','today','me','empty character');
+             
+		$personnage=new Personnage('zero','2015','2015','me','Exterminate!','Ceci est le personnage par defaut',NULL);
+               
 		return $personnage;
 	}
 

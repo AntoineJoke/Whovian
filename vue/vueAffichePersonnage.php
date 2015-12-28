@@ -1,10 +1,4 @@
-<?php
-$rootDirectory = dirname(__FILE__);
-
-require_once($rootDirectory.'/Classes/commonFunctions.php');
-
-outputEnTeteHTML5('Accueil','UTF-8',null);
-?>
+<?=VueHtmlUtils::enTeteHTML5('Affiche Personnage','UTF-8',Config::getStyleSheetsURL()['default'])?>
 
 <h1><?=$modele->getTitle()?></h1>
 	<?=PersonnageView::getHtmlDevelopped($modele->getData())?>
@@ -12,6 +6,4 @@ outputEnTeteHTML5('Accueil','UTF-8',null);
 <a href="?">Revenir à l'accueil</a>
 
 
-<?php
-outputFinFichierHTML5();
-?>
+<?=VueHtmlUtils::finFichierHTML5()?>

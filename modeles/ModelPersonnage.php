@@ -1,8 +1,8 @@
 <?php
 
-$rootDirectory = dirname(__FILE__);
+$modeleDirectory = dirname(__FILE__)."/";
 
-require_once($rootDirectory.'/Model.php');
+require_once($modeleDirectory.'/Model.php');
 
 
 class ModelPersonnage extends Model
@@ -32,17 +32,17 @@ class ModelPersonnage extends Model
 		return $model;
 	}
 
-	public static function getModelPersonnagePost($numDocteur, $anneeDebut, $anneeFin, $acteur, $expFav,$desc,$urlImage){
+	public static function getModelPersonnagePost($numDocteur, $anneeDebut, $anneeFin, $acteur, $expFav,$descri,$urlImage){
 		$model = new self(array());
-		$personnage = PersonnageFabrique::getPersonnage($model->dataError,$anneeDebut, $anneeFin, $acteur, $expFav,$desc,$urlImage);
+		$personnage = PersonnageFabrique::getPersonnage($model->dataError,$anneeDebut, $anneeFin, $acteur, $expFav,$descri,$urlImage);
 		$model->personnage = PersonnageGateway::postPersonnage($model->dataError, $personnage);
 		$model->title = "Le personnage a été mis à jour";
 		return $model;
 	}
 
-	public static function getModelPersonnagePut($anneeDebut, $anneeFin, $acteur, $expFav,$desc,$urlImage){
+	public static function getModelPersonnagePut($anneeDebut, $anneeFin, $acteur, $expFav,$descri,$urlImage){
 		$model = new self(array());
-		$personnage = PersonnageFabrique::getPersonnage($model->dataError,"0000000000", $anneeDebut, $anneeFin, $acteur, $expFav,$desc,$urlImage);
+		$personnage = PersonnageFabrique::getPersonnage($model->dataError,"0000000000", $anneeDebut, $anneeFin, $acteur, $expFav,$descri,$urlImage);
 		$model->personnage = PersonnageGateway::putPersonnage($model->dataError, $personnage);
 		$model->title = "Le personnage à été inséré";
 		return $model;

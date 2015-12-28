@@ -4,7 +4,7 @@ class Config
 	public static function getVues(){
 		global $rootDirectory;
 		$vueDirectory = $rootDirectory."vue/";
-		return array("default" => $vueDirectory."vueAccueil.php","saisiePersonnage" => $vueDirectory."vueSaisiePersonnage.php", "editionPersonnage" => $vueDirectory."vueEdtionPersonnage.php", "affichePersonnage" => $vueDirectory."vueAffichePersonnage.php","afficheCollectionPersonnage" => $vueDirectory."vueCollectionPersonnage.php");
+		return array("default" => $vueDirectory."vueAccueil.php","saisiePersonnage" => $vueDirectory."vueSaisiePersonnage.php", "editionPersonnage" => $vueDirectory."vueEditionPersonnage.php", "affichePersonnage" => $vueDirectory."vueAffichePersonnage.php","afficheCollectionPersonnage" => $vueDirectory."vueCollectionPersonnage.php");
 	
 	}
 

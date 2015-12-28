@@ -7,6 +7,9 @@ class Model{
 		if(empty($this->dataError)){
 			return false;
 		}
+                foreach ($this->dataError as $value) {
+                    echo"$value";
+                }
 		return $this->dataError;
 	}
 

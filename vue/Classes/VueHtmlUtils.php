@@ -20,7 +20,7 @@ class VueHtmlUtils{
 		echo '<ul>';
 		echo '<li class="menu"><a href="index.php">Accueil</a></li>';
 		echo '<li class="menu"><a href="'.Config::getVues()["afficheCollectionPersonnage"].'">News</a></li>';
-		echo '<li class="menu"><a href="'.Config::getVues()["afficheCollectionPersonnage"].'">Biographies</a></li>';
+		echo '<li class="menu"><a href="?action=get-all">Biographies</a></li>';
 		echo '<li class="menu"><a href="'.Config::getVues()["afficheCollectionPersonnage"].'">Connexion</a></li>';
 		echo '</ul>';
 		echo '</nav>';

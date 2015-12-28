@@ -1,8 +1,8 @@
 <?php
 
-$rootDirectory = dirname(__FILE__)."/";
+$modeleDirectory = dirname(__FILE__)."/";
 
-require_once($rootDirectory.'/Model.php');
+require_once($modeleDirectory.'/Model.php');
 
 class ModelCollectionIdentifiant extends Model
 {
