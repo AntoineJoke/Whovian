@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- - phpMyAdmin XML Dump - version 4.1.14 - http://www.phpmyadmin.net - - Client : 127.0.0.1 - Généré le : Mer 30 Décembre 2015 à 20:58 - Version du serveur : 5.6.17 - Version de PHP : 5.5.12 -->
+
+-<pma_xml_export xmlns:pma="http://www.phpmyadmin.net/some_doc_url/" version="1.0">
+
+<!-- - Structure schemas -->
+
+
+
+-<pma:structure_schemas>
+
+
+-<pma:database charset="latin1" collation="latin1_swedish_ci" name="whovian">
+
+<pma:table name="article"> CREATE TABLE `article` ( `id` int(4) NOT NULL, `titre` varchar(50) NOT NULL, `urlImage` varchar(50) NOT NULL, `texte` varchar(3000) NOT NULL ) ENGINE=InnoDB DEFAULT CHARSET=latin1; </pma:table>
+
+<pma:table name="identifiant"> CREATE TABLE `identifiant` ( `login` varchar(50) NOT NULL, `password` varchar(50) NOT NULL ) ENGINE=InnoDB DEFAULT CHARSET=latin1; </pma:table>
+
+<pma:table name="personnage"> CREATE TABLE `personnage` ( `id` int(4) NOT NULL, `numDocteur` varchar(30) NOT NULL, `anneeDebut` int(4) NOT NULL, `anneeFin` int(4) NOT NULL, `acteur` varchar(30) NOT NULL, `expFav` varchar(150) NOT NULL, `descri` varchar(1000) NOT NULL, `urlImage` varchar(50) NOT NULL, PRIMARY KEY (`id`) ) ENGINE=InnoDB DEFAULT CHARSET=latin1; </pma:table>
+
+</pma:database>
+
+</pma:structure_schemas>
+
+<!-- - Base de données : 'whovian' -->
+
+
+
+-<database name="whovian">
+
+<!-- Table article -->
+
+
+
+-<table name="article">
+
+<column name="id">1</column>
+
+<column name="titre">Ouverture du site</column>
+
+<column name="urlImage"/>
+
+<column name="texte">Voici le premier article du site. Le début d'une grande réussite. Il est 1h59 et je sais plus trop ce que je raconte. J'aime les kangourou, c'est meugnon, hehe. Bon aller, je me casse, salut.</column>
+
+</table>
+
+<!-- Table identifiant -->
+
+
+
+-<table name="identifiant">
+
+<column name="login">admin</column>
+
+<column name="password">admin</column>
+
+</table>
+
+<!-- Table personnage -->
+
+
+
+-<table name="personnage">
+
+<column name="id">1</column>
+
+<column name="numDocteur">First</column>
+
+<column name="anneeDebut">1963</column>
+
+<column name="anneeFin">1966</column>
+
+<column name="acteur">William Hartnell</column>
+
+<column name="expFav">Hm. What's that, my boy ?</column>
+
+<column name="descri">Le premier docteur de la série. C'est un extraterrestre venant de Galifrey. Il a une petite fille, Susan Foreman.</column>
+
+<column name="urlImage">/ressources/images/docteurs/first.jpg</column>
+
+</table>
+
+</database>
+
+</pma_xml_export>

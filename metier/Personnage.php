@@ -6,6 +6,8 @@ require_once(dirname(__FILE__). '/PersonnagePropertiesTrait.php') ;
 
 class Personnage{ 
 
+	private $id;
+
 	private $numDocteur;
 
 	private $anneeDebut;
@@ -22,20 +24,21 @@ class Personnage{
 
 	use PersonnageProperties;
 
-	public function __construct($numDocteur,$anneeDebut,$anneeFin,$acteur,$expFav,$descri,$urlImage){
+	public function __construct($id,$numDocteur,$anneeDebut,$anneeFin,$acteur,$expFav,$descri,$urlImage){
+		$this->setId($id);
 		$this->setNumDocteur($numDocteur);
 		$this->setAnneeDebut($anneeDebut);
 		$this->setAnneeFin($anneeFin);
 		$this->setActeur($acteur);
 		$this->setExpFav($expFav);
 		$this->setDescri($descri);
-                $this->setUrlImage($urlImage);
+        $this->setUrlImage($urlImage);
       
 	} 
 
 	public static function getDefaultPersonnage(){ 
              
-		$personnage=new Personnage('zero','2015','2015','me','Exterminate!','Ceci est le personnage par defaut',NULL);
+		$personnage=new Personnage('0','zero','2015','2015','me','Exterminate','Ceci est le personnage par defaut',NULL);
                
 		return $personnage;
 	}

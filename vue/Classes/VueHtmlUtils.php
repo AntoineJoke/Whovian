@@ -9,7 +9,7 @@ class VueHtmlUtils{
 		echo $charset;
 		echo "\"/>\n";
 		echo "<link type=\"text/css\" rel=\"stylesheet\" href=\"";
-		echo $css_sheet;
+		echo $css_sheet; 
 		echo "\"/>\n";
 		echo "<title>".$title."</title>\n";
 		echo "</head>\n<body>\n";

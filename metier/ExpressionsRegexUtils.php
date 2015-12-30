@@ -22,7 +22,7 @@ class ExpressionsRegexUtils{
 	 return '/^([a-zA-Z0-9]'
 				.'|(\&[a-zA-Z]grave\;)|(\&[a-zA-Z]acute\;)|(\&[a-zA-Z]circ\;)|(\&[a-zA-Z]uml\;)'
 				.'|(\&[a-zA-Z]cedil\;)|(\&[a-zA-Z][a-zA-Z]lig\;)|(\&szlig\;)|(\&[a-zA-Z]tilde\;)'
-				.'|(\-)|( )|(\!)|(\?)|(\&\#232\;)|(\,)|(\&amp\;\#39\;)|(\&\#039\;)|(\&\#130\;)|(\')|(\&egrave\;)|(\&amp\;\#34\;)|(\&\#034\;)|(\&quot\;)|(\.))*$/';
+				.'|(\-)|( )|(\&amp\;\#39\;)|(\&\#039\;)|(\&amp\;\#34\;)|(\&\#034\;)|(\&quot\;)|(\.))*$/';
 	}
 
    /**
@@ -32,7 +32,7 @@ class ExpressionsRegexUtils{
 	public static function isValidRegexFrLang($chaine, $minLenth, $maxLenth){
 		return (isset($chaine) &&
 			     strlen($chaine) >= $minLenth && strlen($chaine) <= $maxLenth
-				&& preg_match(self::getRegexFrLang(), $chaine));				
+				&& preg_match(self::getRegexFrLang(), $chaine));
 	}
 
   /**
@@ -42,7 +42,7 @@ class ExpressionsRegexUtils{
 	public static function isValidRegexFrLangWithNumbers($chaine, $minLenth, $maxLenth){
 		return (isset($chaine) &&
 			     strlen($chaine) >= $minLenth && strlen($chaine) <= $maxLenth
-				&& preg_match(self::getRegexFrLangWithNumbers(), $chaine));				
+				/*&& preg_match(self::getRegexFrLangWithNumbers(), $chaine)*/);
 	}
 
   /**
@@ -52,7 +52,7 @@ class ExpressionsRegexUtils{
 	public static function isValidString($chaine, $regExp, $minLenth, $maxLenth){
 		return (isset($chaine) &&
 			     strlen($chaine) >= $minLenth && strlen($chaine) <= $maxLenth
-				&& preg_match($regExp, $chaine));				
+				&& preg_match($regExp, $chaine));
 	}
 }
-?>
+?>  

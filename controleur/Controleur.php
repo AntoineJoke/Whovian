@@ -14,8 +14,7 @@ class Controleur{
 						require(Config::getVues()["affichePersonnage"]);
 						break;
 
-					case "get-all":
-                                           
+					case "get-all":      
 						$modele = ModelCollectionPersonnage::getModelPersonnageAll();
                                                 $a=$modele->getError();
 						if ($modele->getError()===false) {
@@ -24,9 +23,8 @@ class Controleur{
 							require (Config::getVuesErreur()["default"]);
                                                         
 						}
-						
 						break;
-						
+
 					case "saisie":
 						require (dirname(__FILE__)."/validationPersonnage.php");
 						$modele = ModelPersonnage::getModelDefaultPersonnage();
@@ -41,10 +39,9 @@ class Controleur{
 						}else{
 
 							require(Config::getVuesErreur()["default"]);
-
 						}
-						break;	
-					
+						break;
+
 					case "post":
 						require (dirname(__FILE__)."/validationPersonnage.php");
 						$modele = ModelPersonnage::getModelPersonnagePost($numDocteur,$anneeDebut,$anneeFin,$acteur,$expFav,$desc,$urlImage);
@@ -53,10 +50,8 @@ class Controleur{
 						}else{
 
 							require(Config::getVuesErreur()["saisiePersonnage"]);
-
 						}
-						break;	
-
+						break;
 
 					case "put":
 						require (dirname(__FILE__)."/validationPersonnage.php");
@@ -64,9 +59,7 @@ class Controleur{
 						if ($modele->getError()==false) {
 							require(Config::getVues()["affichePersonnage"]);
 						}else{
-
 							require(Config::getVuesErreur()["saisiePersonnage"]);
-
 						}
 						break;
 
@@ -76,9 +69,7 @@ class Controleur{
 						if ($modele->getError()==false) {
 							require(Config::getVues()["affichePersonnage"]);
 						}else{
-
 							require(Config::getVuesErreur()["default"]);
-
 						}
 						break;
 

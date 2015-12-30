@@ -4,7 +4,6 @@ $modeleDirectory = dirname(__FILE__)."/";
 
 require_once($modeleDirectory.'/Model.php');
 
-
 class ModelPersonnage extends Model
 {
 	private $personnage;
@@ -25,32 +24,32 @@ class ModelPersonnage extends Model
 	return $model;
 	}
 
-	public static function getModelPersonnage($numDocteur){
+	public static function getModelPersonnage($id){
 		$model = new self(array());
-		$model->Personnage = PersonnageGateway::getPersonnageByNumDocteur($model->dataError, $numDocteur);
+		$model->Personnage = PersonnageGateway::getPersonnageById($model->dataError, $id);
 		$model->title = "Affichage d'un personnage";
 		return $model;
 	}
 
-	public static function getModelPersonnagePost($numDocteur, $anneeDebut, $anneeFin, $acteur, $expFav,$descri,$urlImage){
+	public static function getModelPersonnagePost($id, $numDoctor, $anneeDebut, $anneeFin, $acteur, $expFav,$descri,$urlImage){
 		$model = new self(array());
-		$personnage = PersonnageFabrique::getPersonnage($model->dataError,$anneeDebut, $anneeFin, $acteur, $expFav,$descri,$urlImage);
+		$personnage = PersonnageFabrique::getPersonnage($model->dataError,$numDoctor, $anneeDebut, $anneeFin, $acteur, $expFav,$descri,$urlImage);
 		$model->personnage = PersonnageGateway::postPersonnage($model->dataError, $personnage);
 		$model->title = "Le personnage a été mis à jour";
 		return $model;
 	}
 
-	public static function getModelPersonnagePut($anneeDebut, $anneeFin, $acteur, $expFav,$descri,$urlImage){
+	public static function getModelPersonnagePut($numDoctor, $anneeDebut, $anneeFin, $acteur, $expFav,$descri,$urlImage){
 		$model = new self(array());
-		$personnage = PersonnageFabrique::getPersonnage($model->dataError,"0000000000", $anneeDebut, $anneeFin, $acteur, $expFav,$descri,$urlImage);
+		$personnage = PersonnageFabrique::getPersonnage($model->dataError,"0000", $numDoctor, $anneeDebut, $anneeFin, $acteur, $expFav,$descri,$urlImage);
 		$model->personnage = PersonnageGateway::putPersonnage($model->dataError, $personnage);
 		$model->title = "Le personnage à été inséré";
 		return $model;
 	}
 
-	public static function deletePersonnage($numDocteur){
+	public static function deletePersonnage($id){
 		$model = new self(array());
-		$model->personnage = PersonnageGateway::deletePersonnage($model->dataError, $numDocteur);
+		$model->personnage = PersonnageGateway::deletePersonnage($model->dataError, $id);
 		$model->title = "Personnage supprimée";
 		return $model;
 	}

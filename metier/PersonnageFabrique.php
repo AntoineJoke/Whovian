@@ -2,10 +2,19 @@
 require_once(dirname(__FILE__). '/Personnage.php');
 
 class PersonnageFabrique{ 
-	public static function getPersonnage(&$dataErrors, $numDocteur=null, $anneeDebut=null, $anneeFin=null, $acteur=null, $expFav=null,$descri=null,$urlImage=null){ 
+	public static function getPersonnage(&$dataErrors, $id=null, $numDocteur=null, $anneeDebut=null, $anneeFin=null, $acteur=null, $expFav=null,$descri=null,$urlImage=null){ 
             
 		$perso=Personnage::getDefaultPersonnage();
 		$dataErrors=array();
+
+		try{ 
+                    
+			$perso->setId($id);
+		}catch (Exception $e){ 
+			$dataErrors['id']=$e->getMessage()."<br/>\n";
+
+		}
+
 
 		try{ 
                     
