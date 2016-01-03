@@ -101,7 +101,7 @@ class PersonnageGateway{
 
 		while($statement == false && $count<=3){
 			$count++;
-			$statement = DataBaseManager::getInstance()->prepareAndExecuteQuery('INSERT INTO Personnage(id,numDocteur,anneeDebut,anneeFin,acteur,expFav,descri,urlImage) VALUES(?,?,?,?,?,?,?)',
+			$statement = DataBaseManager::getInstance()->prepareAndExecuteQuery('INSERT INTO Personnage(id,numDocteur,anneeDebut,anneeFin,acteur,expFav,descri,urlImage) VALUES(?,?,?,?,?,?,?,?)',
 				array(
 					$persaonnge->getId(),
 					$personnage->getNumDocteur(),

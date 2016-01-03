@@ -32,7 +32,7 @@ class PersonnageFabrique{
 		}
 
 		try{
-			$perso->setAnneeDebut($anneeFin);
+			$perso->setAnneeFin($anneeFin);
 		}catch (Exception $e){ 
 			$dataErrors['anneeFin']=$e->getMessage()."<br/>\n";
 			
