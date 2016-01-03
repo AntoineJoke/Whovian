@@ -9,8 +9,10 @@ class Controleur{
 				
 				switch ($action) {
 					case "get":
-						$numDocteur = filter_var($_REQUEST['numDocteur'],FILTER_SANITIZE_STRING);
-						$modele = ModelPersonnage::getModelPersonnage($numDocteur);
+						$id = filter_var($_REQUEST['numDocteur'],FILTER_SANITIZE_NUMBER_INT);
+						//echo "<h1>".$id."</h1>";
+						//$id = 1;
+						$modele = ModelPersonnage::getModelPersonnage($id);
 						require(Config::getVues()["affichePersonnage"]);
 						break;
 

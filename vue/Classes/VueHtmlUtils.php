@@ -31,8 +31,11 @@ class VueHtmlUtils{
 
 	static function finFichierHTML5(){
 
-		echo '<footer>';
-      		echo '  Richard Quentin et Bassot Antoine groupe 1';
+			echo '<p>-</p>';
+			echo '<p>-</p>';
+
+			echo '<footer>';
+      		echo 'Richard Quentin et Bassot Antoine groupe 1';
       		echo '</footer>';
     		echo '</div>';
 		echo "</body>\n</html>\n";

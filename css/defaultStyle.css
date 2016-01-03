@@ -236,6 +236,11 @@ a:hover {
   text-align: left;
 }
 
+img {
+  margin: 20;
+  border-color: black;
+}
+
 h2 {
   color: rgb(220,220,220);
   text-align: left;

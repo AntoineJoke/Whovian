@@ -26,8 +26,8 @@ class ModelPersonnage extends Model
 
 	public static function getModelPersonnage($id){
 		$model = new self(array());
-		$model->Personnage = PersonnageGateway::getPersonnageById($model->dataError, $id);
-		$model->title = "Affichage d'un personnage";
+		$model->personnage = PersonnageGateway::getPersonnageById($model->dataError, $id);
+		$model->title = "Fiche détaillée";
 		return $model;
 	}
 

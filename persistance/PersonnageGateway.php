@@ -2,13 +2,13 @@
 class PersonnageGateway{
 
 
-	public static function getPersonnageByNumDocteur(&$dataError,$id){
+	public static function getPersonnageById(&$dataError,$id){
 		if(isset($id)){
 			try{
 				$statement=DataBaseManager::getInstance()->prepareAndExecuteQuery('SELECT *FROM Personnage WHERE id=?',array($id));
 
 			}
-			catch(Exceptiuon $e){
+			catch(Exception $e){
 				echo "Impossible d'accéder aux données.";
 				$dataError['requete'] = "Impossible d'accéder aux données.";
 			}
