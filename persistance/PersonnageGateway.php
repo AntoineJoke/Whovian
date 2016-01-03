@@ -132,7 +132,7 @@ class PersonnageGateway{
 
 
 	public static function deletePersonnage(&$dataError,$id){
-		$personnage = self::getPersonnageByNumDocteur($dataError,$id);
+		$personnage = self::getPersonnageById($dataError,$id);
 
 		if (empty($dataError)) {
 			$statement = DataBaseManager::getInstance()->prepareAndExecuteQuery('DELETE FROM Personnage WHERE id=?',array($id));
