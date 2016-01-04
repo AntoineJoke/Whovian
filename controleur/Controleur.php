@@ -9,9 +9,7 @@ class Controleur{
 				
 				switch ($action) {
 					case "get":
-						$id = filter_var($_REQUEST['numDocteur'],FILTER_SANITIZE_NUMBER_INT);
-						//echo "<h1>".$id."</h1>";
-						//$id = 1;
+						$id = filter_var($_REQUEST['id'],FILTER_SANITIZE_NUMBER_INT);
 						$modele = ModelPersonnage::getModelPersonnage($id);
 						require(Config::getVues()["affichePersonnage"]);
 						break;
@@ -28,15 +26,15 @@ class Controleur{
 						break;
 
 					case "saisie":
-						require (dirname(__FILE__)."/validationPersonnage.php");
 						$modele = ModelPersonnage::getModelDefaultPersonnage();
 						require(Config::getVues()["saisiePersonnage"]);
 						break;
 
 					case "edit":
-						$numDocteur = filter_var($_REQUEST['numDocteur'],FILTER_SANITIZE_STRING);
-						$modele = ModelPersonnage::getModelPersonnage($numDocteur);
+						$id = filter_var($_REQUEST['id'],FILTER_SANITIZE_NUMBER_INT);
+						$modele = ModelPersonnage::getModelPersonnage($id);
 						if ($modele->getError()==false) {
+                                                    
 							require(Config::getVues()["editionPersonnage"]);
 						}else{
 
@@ -45,8 +43,9 @@ class Controleur{
 						break;
 
 					case "post":
+                                                require (dirname(__FILE__)."/retrieveInputsPerso.php");
 						require (dirname(__FILE__)."/validationPersonnage.php");
-						$modele = ModelPersonnage::getModelPersonnagePost($numDocteur,$anneeDebut,$anneeFin,$acteur,$expFav,$desc,$urlImage);
+						$modele = ModelPersonnage::getModelPersonnagePost($id,$numDocteur,$anneeDebut,$anneeFin,$acteur,$expFav,$descri,$urlImage);
 						if ($modele->getError()==false) {
 							require(Config::getVues()["affichePersonnage"]);
 						}else{
@@ -56,8 +55,9 @@ class Controleur{
 						break;
 
 					case "put":
+                                                require (dirname(__FILE__)."/retrieveInputsPerso.php");
 						require (dirname(__FILE__)."/validationPersonnage.php");
-						$modele = ModelPersonnage::getModelPersonnagePut($anneeDebut,$anneeFin,$acteur,$expFav,$desc,$urlImage);
+						$modele = ModelPersonnage::getModelPersonnagePut($numDocteur,$anneeDebut,$anneeFin,$acteur,$expFav,$descri,$urlImage);
 						if ($modele->getError()==false) {
 							require(Config::getVues()["affichePersonnage"]);
 						}else{
@@ -66,8 +66,8 @@ class Controleur{
 						break;
 
 					case "delete":
-						$numDocteur = filter_var($_REQUEST['numDocteur'],FILTER_SANITIZE_STRING);
-						$modele = ModelPersonnage::deletePersonnage($numDocteur);
+						$id = filter_var($_REQUEST['id'],FILTER_SANITIZE_STRING);
+						$modele = ModelPersonnage::deletePersonnage($id);
 						if ($modele->getError()==false) {
 							require(Config::getVues()["affichePersonnage"]);
 						}else{
