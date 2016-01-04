@@ -2,6 +2,9 @@
 
 <title>Toutes les news</title>
 <?php
+		echo "<section>";
+		echo "<a href=\"?action=saisie-news\">ajouter une news</a>";
+		echo "</section>";
 	foreach ($modele->getData() as $article) {
 		echo"<section>";
 		echo "<h2>".ArticleView::getHtmlCompact($article)."</h2>";

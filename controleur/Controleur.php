@@ -15,6 +15,11 @@ class Controleur{
 						require(Config::getVues()["connexion"]);
 						break;
 
+					case "saisie-news":
+						$modele = ModelArticle::getModelDefaultArticle();
+						require(Config::getVues()["saisieArticle"]);
+						break;
+
 					case "get-news":
 						$id = filter_var($_REQUEST['id'],FILTER_SANITIZE_NUMBER_INT);
 						$modele = ModelArticle::getModelArticle($id);
