@@ -38,7 +38,7 @@ class Personnage{
 
 	public static function getDefaultPersonnage(){ 
              
-		$personnage=new Personnage('0','zero','2015','2015','me','Exterminate','Ceci est le personnage par defaut',NULL);
+		$personnage=new Personnage(' ',' ','2015','2015',' ',' ',' ',NULL);
                
 		return $personnage;
 	}

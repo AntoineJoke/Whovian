@@ -7,26 +7,26 @@
 **/
 
 class FormManager {
-	public static function beginForm($method, $action , $css_class="", $extraOptions="") {
+	public static function beginForm($method, $action , $css_class=" ", $extraOptions="") {
             if (!empty($css_class)) {
                 $css_class_option = "class=\"" . $css_class . "\" ";
             }
-        return "<form method=\"".$method."\" action=\"". $action ."\" ". $css_class_option.$extraOptions.">\n";
-	   }
-	    public static function endForm() { 
+            return "<form method=\"".$method."\" action=\"". $action ."\" ". $css_class_option.$extraOptions.">\n";
+	 }
+	public static function endForm() { 
 	    	return "</form>";
-	    }
+	}
 
 
 	    public static function addInput($labelText , $type , $name, $id , $value=null , $extraOptions="", $noBR=false ) { 
 	    	$valueOption = ($value == null) ? "" : " value=\"".$value."\" ";
-
+                $returnText="";
 			if ($extraOptions == null) { 
 				$extraOptions="";
 			} 
 
 			if ($labelText !=null && $labelText !=""){ 
-			 $returnText .= "<label for=\"".$id."\">". $labelText ."</label>\n";
+                            $returnText .= "<label for=\"".$id."\">". $labelText ."</label>\n";
 			} 
 
 			$returnText .= "<input type=\"".$type."\" name=\"".$name."\" id=\"".$id."\"  ".$valueOption." ".$extraOptions." />\n"; 

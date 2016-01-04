@@ -73,14 +73,16 @@ class PersonnageGateway{
 
 
 	public static function postPersonnage(&$dataError,$personnage){
-		$statement = DataBaseManager::getInstance()->prepareAndExecuteQuery('UPDATE Personnage SET id=?,numDocteur=?,anneeDebut=?,anneeFin=?,acteur=?,expFav=?,descri=?,urlImage=? WHERE numDocteur=?', 
-			array($personnage->getNumDocteur(),
-					$personnage->getAnneeDebut(),
-					$personnage->getAnneeFin(),
-					$personnage->getActeur(),
-					$personnage->getExpFav(),
-					$personnage->getDesc(),
-					$personnage->getUrlImage()
+		$statement = DataBaseManager::getInstance()->prepareAndExecuteQuery('UPDATE Personnage SET numDocteur=?,anneeDebut=?,anneeFin=?,acteur=?,expFav=?,descri=?,urlImage=? WHERE id=?', 
+			array(
+                                $personnage->getNumDocteur(),
+                        	$personnage->getAnneeDebut(),
+				$personnage->getAnneeFin(),
+				$personnage->getActeur(),
+				$personnage->getExpFav(),
+				$personnage->getDescri(),
+				$personnage->getUrlImage(),
+                                $personnage->getId()
 			)
 		);
 
@@ -103,13 +105,13 @@ class PersonnageGateway{
 			$count++;
 			$statement = DataBaseManager::getInstance()->prepareAndExecuteQuery('INSERT INTO Personnage(id,numDocteur,anneeDebut,anneeFin,acteur,expFav,descri,urlImage) VALUES(?,?,?,?,?,?,?,?)',
 				array(
-					$persaonnge->getId(),
+					$personnage->getId(),
 					$personnage->getNumDocteur(),
 					$personnage->getAnneeDebut(),
 					$personnage->getAnneeFin(),
 					$personnage->getActeur(),
 					$personnage->getExpFav(),
-					$personnage->getDesc(),
+					$personnage->getDescri(),
 					$personnage->getUrlImage()
 				)
 			);

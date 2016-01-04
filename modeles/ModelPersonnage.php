@@ -33,7 +33,7 @@ class ModelPersonnage extends Model
 
 	public static function getModelPersonnagePost($id, $numDoctor, $anneeDebut, $anneeFin, $acteur, $expFav,$descri,$urlImage){
 		$model = new self(array());
-		$personnage = PersonnageFabrique::getPersonnage($model->dataError,$numDoctor, $anneeDebut, $anneeFin, $acteur, $expFav,$descri,$urlImage);
+		$personnage = PersonnageFabrique::getPersonnage($model->dataError,$id,$numDoctor, $anneeDebut, $anneeFin, $acteur, $expFav,$descri,$urlImage);
 		$model->personnage = PersonnageGateway::postPersonnage($model->dataError, $personnage);
 		$model->title = "Le personnage a été mis à jour";
 		return $model;
