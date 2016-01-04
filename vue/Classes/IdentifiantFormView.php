@@ -1,6 +1,4 @@
 <?php
-require_once ('../../metier/Identifiant.php');
-require_once ( dirname (__FILE__).'/FormManager.php');
 
 
 class IdentifiantFormView {
@@ -11,12 +9,10 @@ class IdentifiantFormView {
 
 
  	public static function getFormHtml ($action,$identifiant) {
- 		$htmlCode = FormManager ::beginForm("post", $action ) ;
- 			$htmlCode .= FormManager ::addTextInput ( "Login" , "login" , "login" , "8" ,html_entity_decode($identifiant>getLogin(), ENT_QUOTES,"UTF−8" ) )."<br/>";
- 		
-
- 			$htmlCode.= FormManager ::addTextInput("Mot de Passe" , "mdp" , "mdp" , "10" ,html_entity_decode($identifiant>getMdp() , ENT_QUOTES, "UTF−8" ) ) . "<br/>" ;
- 			$htmlCode .= FormManager ::addSubmitButton("Envoyer" , "class =\"sansLabel \"")."<br/>";
+ 		$htmlCode = FormManager ::beginForm("post", $action )."<br/>" ;
+ 			$htmlCode .= FormManager ::addTextInput ( "Login" , "login" , "login" , "8" ,html_entity_decode($identifiant->getLogin(), ENT_QUOTES,"UTF-8" ) ). "  ";
+ 			$htmlCode.= FormManager ::addPasswordInput("Mot De Passe" , "mdp" , "mdp" , "10" ,html_entity_decode($identifiant->getMdp() , ENT_QUOTES, "UTF-8" ) ) . "  " ;
+ 			$htmlCode .= FormManager ::addSubmitButton("Envoyer" , "class =\"sansLabel \"");
  		$htmlCode .= FormManager ::endForm();
 
 		return $htmlCode ;
@@ -35,9 +31,9 @@ class IdentifiantFormView {
 
  		$htmlCode = FormManager ::beginForm("post",$action) ;
 			$htmlCode .=self ::addErrorMsg($dataErrors, "login");
-			$htmlCode .=FormManager ::addTextInput("Login","login","login","8",html_entity_decode($identifiant>getLogin( ),ENT_QUOTES, "UTF−8"))."<br/>";
+			$htmlCode .=FormManager ::addTextInput("Login","login","login","8",html_entity_decode($identifiant>getLogin( ),ENT_QUOTES, "UTF-8"))."<br/>";
 			$htmlCode .=self ::addErrorMsg ( $dataErrors , "mdp" ) ;
-			$htmlCode .=FormManager ::addTextInput ( "Mot de Passe","mdp","mdp","10" ,html_entity_decode ( $identifiant>getMdp( ),ENT_QUOTES,"UTF−8"))."<br/>";
+			$htmlCode .=FormManager ::addTextInput ( "Mot de Passe","mdp","mdp","10" ,html_entity_decode ( $identifiant>getMdp( ),ENT_QUOTES,"UTF-8"))."<br/>";
 
 
 			$htmlCode .= FormManager ::addSubmitButton("Envoyer","class=\"sansLabel\"")."<br/>";

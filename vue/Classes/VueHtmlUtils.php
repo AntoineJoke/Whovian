@@ -21,7 +21,7 @@ class VueHtmlUtils{
 		echo '<li class="menu"><a href="index.php">Accueil</a></li>';
 		echo '<li class="menu"><a href="?action=get-all-news">News</a></li>';
 		echo '<li class="menu"><a href="?action=get-all">Biographies</a></li>';
-		echo '<li class="menu"><a href="?action=get-co">Connexion</a></li>';
+		echo '<li class="menu"><a href="?action=saisie-co">Connexion</a></li>';
 		echo '</ul>';
 		echo '</nav>';
 		echo '</header>';

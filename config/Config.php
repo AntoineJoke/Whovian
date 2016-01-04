@@ -5,7 +5,7 @@ class Config
 		global $rootDirectory;
 		$vueDirectory = $rootDirectory."vue/";
 		return array("default" => $vueDirectory."vueAccueil.php","saisiePersonnage" => $vueDirectory."vueSaisiePersonnage.php", "editionPersonnage" => $vueDirectory."vueEditionPersonnage.php", "affichePersonnage" => $vueDirectory."vueAffichePersonnage.php","afficheCollectionPersonnage" => $vueDirectory."vueCollectionPersonnage.php"
-			,"saisieArticle" => $vueDirectory."vueSaisieArticle.php", "editionArticle" => $vueDirectory."vueEditionArticle.php", "afficheArticle" => $vueDirectory."vueAfficheArticle.php","afficheCollectionArticle" => $vueDirectory."vueCollectionArticle.php");
+			,"saisieArticle" => $vueDirectory."vueSaisieArticle.php", "editionArticle" => $vueDirectory."vueEditionArticle.php", "afficheArticle" => $vueDirectory."vueAfficheArticle.php","afficheCollectionArticle" => $vueDirectory."vueCollectionArticle.php","connexion"=>$vueDirectory."vueSaisieIdentifiant.php");
 	
 	}
 

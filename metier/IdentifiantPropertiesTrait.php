@@ -12,19 +12,15 @@ trait IdentifiantProperties{
 	}
 
 	public function setLogin($login){ 
-		global $regex_FR_LANG_WITH_NUMBERS;
-		if(!isValidString($login,regex_FR_LANG_WITH_NUMBERS,1,8)){
-			throw new Exception("Erreur, le login doit être de maximum 8 caractères"."erreur alphanumérique");
-
+		if(!ExpressionsRegexUtils::isValidRegexFrLangWithNumbers($login,1,15)){
+			throw new Exception("Erreur le login doit être composé de au plus 15 caractères "."(alphabétiques)");
 		}
 		$this->login =empty($login) ? "" : $login;
 	}
 
 	public function setMdp($mdp){ 
-		global $regex_FR_LANG_WITH_NUMBERS;
-		if(!isValidString($mdp,regex_FR_LANG_WITH_NUMBERS,1,20)){
-			throw new Exception("Erreur, le mot de passe doit être de minimum 8 caractère, et maximum 20"."erreur alphanumérique");
-
+		if(!ExpressionsRegexUtils::isValidRegexFrLangWithNumbers($mdp,8,15)){
+			throw new Exception("Erreur le mot de passe doit être composé de minimum 8 caractères, maximum 15 caractères "."(alphabétiques)");
 		}
 		$this->mdp =empty($mdp) ? "" : $mdp;
 	}

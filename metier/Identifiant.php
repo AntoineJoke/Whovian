@@ -1,6 +1,7 @@
 <?php
-require_once(dirname(__FILE__). '/ ExpressionsRegexUtils .php') ;
-require_once(dirname(__FILE__). '/ IdentifiantPropertiesTrait .php') ;
+require_once(dirname(__FILE__). '/ExpressionsRegexUtils.php') ;
+require_once(dirname(__FILE__). '/IdentifiantPropertiesTrait.php') ;
+
 
 class Identifiant{ 
 
@@ -8,7 +9,7 @@ class Identifiant{
 
 	private $mdp;
 
-	use ArticleProperties;
+	use IdentifiantProperties;
 
 	public function __construct($login,$mdp){
 		$this->setLogin($login);

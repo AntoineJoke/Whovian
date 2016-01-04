@@ -9,6 +9,11 @@ class Controleur{
 				
 				switch ($action) {
 
+					case "saisie-co":
+						$modele = ModelIdentifiant::getModelDefaultIdentifiant();
+						require(Config::getVues()["connexion"]);
+ 						break;
+
 					case "get-co":
 						$id = filter_var($_REQUEST['id'],FILTER_SANITIZE_NUMBER_INT);
 						$modele = ModelCo::getModelCo($id);
