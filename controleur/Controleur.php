@@ -8,10 +8,74 @@ class Controleur{
 				$action=isset($_REQUEST['action']) ? $_REQUEST['action'] : "";
 				
 				switch ($action) {
+
+					case "get-co":
+						$id = filter_var($_REQUEST['id'],FILTER_SANITIZE_NUMBER_INT);
+						$modele = ModelCo::getModelCo($id);
+						require(Config::getVues()["connexion"]);
+						break;
+
+					case "get-news":
+						$id = filter_var($_REQUEST['id'],FILTER_SANITIZE_NUMBER_INT);
+						$modele = ModelArticle::getModelArticle($id);
+						require(Config::getVues()["afficheArticle"]);
+						break;
+
+					case "get-all-news":      
+						$modele = ModelCollectionArticle::getModelArticleAll();
+                                                $a=$modele->getError();
+						if ($modele->getError()===false) {
+							require(Config::getVues()["afficheCollectionArticle"]);
+						}else{ 
+							require (Config::getVuesErreur()["default"]);
+                                                        
+						}
+						break;
+
+					case "edit-news":
+						$id = filter_var($_REQUEST['id'],FILTER_SANITIZE_STRING);
+						$modele = ModelArticle::getModelArticle($id);
+						if ($modele->getError()==false) {
+							require(Config::getVues()["editionArticle"]);
+						}else{
+
+							require(Config::getVuesErreur()["default"]);
+						}
+						break;
+
+					case "post-news":
+						require (dirname(__FILE__)."/validationPersonnage.php");
+						$modele = ModelArticle::getModelArticlePost($id,$anneeDebut,$anneeFin,$acteur,$expFav,$desc,$urlImage);
+						if ($modele->getError()==false) {
+							require(Config::getVues()["afficheArticle"]);
+						}else{
+
+							require(Config::getVuesErreur()["saisieArticle"]);
+						}
+						break;
+
+					case "put-news":
+						require (dirname(__FILE__)."/validationPersonnage.php");
+						$modele = ModelArticle::getModelArticlePut($anneeDebut,$anneeFin,$acteur,$expFav,$desc,$urlImage);
+						if ($modele->getError()==false) {
+							require(Config::getVues()["afficheArticle"]);
+						}else{
+							require(Config::getVuesErreur()["saisieArticle"]);
+						}
+						break;
+
+					case "delete-news":
+						$id = filter_var($_REQUEST['id'],FILTER_SANITIZE_NUMBER_INT);
+						$modele = ModelArticle::deleteArticle($id);
+						if ($modele->getError()==false) {
+							require(Config::getVues()["afficheArticle"]);
+						}else{
+							require(Config::getVuesErreur()["default"]);
+						}
+						break;
+
 					case "get":
 						$id = filter_var($_REQUEST['numDocteur'],FILTER_SANITIZE_NUMBER_INT);
-						//echo "<h1>".$id."</h1>";
-						//$id = 1;
 						$modele = ModelPersonnage::getModelPersonnage($id);
 						require(Config::getVues()["affichePersonnage"]);
 						break;
@@ -66,7 +130,7 @@ class Controleur{
 						break;
 
 					case "delete":
-						$numDocteur = filter_var($_REQUEST['numDocteur'],FILTER_SANITIZE_STRING);
+						$numDocteur = filter_var($_REQUEST['numDocteur'],FILTER_SANITIZE_NUMBER_INT);
 						$modele = ModelPersonnage::deletePersonnage($numDocteur);
 						if ($modele->getError()==false) {
 							require(Config::getVues()["affichePersonnage"]);

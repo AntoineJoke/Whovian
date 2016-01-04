@@ -41,7 +41,7 @@ class ExpressionsRegexUtils{
     */
 	public static function isValidRegexFrLangWithNumbers($chaine, $minLenth, $maxLenth){
 		return (isset($chaine) &&
-			     strlen($chaine) >= $minLenth && strlen($chaine) <= $maxLenth
+			    strlen($chaine) >= $minLenth && strlen($chaine) <= $maxLenth
 				/*&& preg_match(self::getRegexFrLangWithNumbers(), $chaine)*/);
 	}
 

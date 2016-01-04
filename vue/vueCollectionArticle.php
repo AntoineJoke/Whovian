@@ -1,19 +1,15 @@
 <?=VueHtmlUtils ::enTeteHTML5('Bienvenue sur notre site','UTF-8',Config::getStyleSheetsURL()['default'])?>
 
-<h1>Toutes les adresses</h1>
-<a href="?">Revenir à l'accueil</a>
+<title>Toutes les news</title>
 <?php
-	echo "<table><tbody>";
-	foreach ($modele->getData() as $adresse) {
-		echo"<tr>";
-		echo"<td><a href=\"?action=delete&id".$adresse->getId()."\">supprimer</a></td>";
-		echo"<td><a href=\"?action=edit&id".$adresse->getId()."\">modifier</a></td>";
-		echo "<td>".AdresseView::getHtmlCompact($adresse)."</td>";
-		echo"<tr>";
-
-
+	foreach ($modele->getData() as $article) {
+		echo"<section>";
+		echo "<h2>".ArticleView::getHtmlCompact($article)."</h2>";
+		echo "<p><a href=\"?action=get-news&id=".$article->getId()."\"> [ Lire l'article ... ] </a></p>";
+		echo"<p><a href=\"?action=delete-news&id".$article->getId()."\"> [ supprimer ] </a></p>";
+		echo"<p><a href=\"?action=edit-news&id".$article->getId()."\"> [ modifier ] </a></p>";
+		echo"</section>";
 	}
-	echo"</tbody></table>";
 ?>
 
-<?=VueHtmlUtils::finDichierHtml5();?>
+<?=VueHtmlUtils::finFichierHtml5();?>

@@ -1,5 +1,5 @@
 <?php
-class PersonnageGateway{
+class ArticleGateway{
 
 
 	public static function getArticleById(&$dataError,$id){

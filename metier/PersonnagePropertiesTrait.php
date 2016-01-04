@@ -37,13 +37,7 @@ trait PersonnageProperties{
 
 	public function setId($id){
 		if(!ExpressionsRegexUtils::isValidRegexFrLangWithNumbers($id,1,4)){
-			echo "<h1>".$id."</h1>";
-			echo "<h1>".$id."</h1>";
-			echo "<h1>".$id."</h1>";
-			echo "<h1>".$id."</h1>";
-			echo "<h1>ERREUR SUR {id}</h1>" ;
-
-			throw new Exception("Erreur l'id doit être compsé de 4 chiffres exactement"."(chiffres)");
+			throw new Exception("Erreur l'id doit être compsé au plus de 4 chiffres"."(chiffres)");
 		}
 
 		$this->id =empty($id) ? "" : $id;
@@ -51,8 +45,6 @@ trait PersonnageProperties{
 
 	public function setNumDocteur($numDocteur){ 
 		if(!ExpressionsRegexUtils::isValidRegexFrLang($numDocteur,1,30)){
-			echo "<h1>".$numDocteur."</h1>";
-			echo "<h1>ERREUR SUR {numDocteur}</h1>" ;
                     
 			throw new Exception("Erreur le numéro du docteur doit comporter au plus 10 caractères"." (alphabétiques)");
 
@@ -63,8 +55,6 @@ trait PersonnageProperties{
 
 	public function setAnneeDebut($anneeDebut){ 
 		if(!ExpressionsRegexUtils::isValidRegexFrLangWithNumbers($anneeDebut,4,4)){
-			echo "<h1>".$anneeDebut."</h1>";
-			echo "<h1>ERREUR SUR {anneeDebut}</h1>" ;
 			throw new Exception("Erreur l'année de début doit comporter 4 caractères"." (chiffres)");
 
 		}
@@ -73,8 +63,6 @@ trait PersonnageProperties{
 
 	public function setAnneeFin($anneeFin){ 
 		if(!ExpressionsRegexUtils::isValidRegexFrLangWithNumbers($anneeFin,4,4)){
-			echo "<h1>".$anneeFin."</h1>";
-			echo "<h1>ERREUR SUR {anneeFin}</h1>" ;
 			throw new Exception("Erreur l'année de fin doit comporter 4 caractères"." (chiffres)");
 
 		}
@@ -83,8 +71,6 @@ trait PersonnageProperties{
 
 	public function setActeur($acteur){ 
 		if(!ExpressionsRegexUtils::isValidRegexFrLang($acteur,1,30)){
-			echo "<h1>".$acteur."</h1>";
-			echo "<h1>ERREUR SUR {acteur}</h1>" ;
 			throw new Exception("Erreur l'acteur doit comporter au plus 50 caractères"." (alphabétiques)");
 
 		}
@@ -93,8 +79,6 @@ trait PersonnageProperties{
 
 	public function setExpFav($expFav){
 		if(!ExpressionsRegexUtils::isValidRegexFrLangWithNumbers($expFav,1,150)){
-			echo "<h1>".$expFav."</h1>";
-			echo "<h1>ERREUR SUR {EXPFAV}</h1>" ;
 			throw new Exception("Erreur l'expression favorite doit comporter au plus 150 caractères"." (alphabétiques, chiffres ou &#-_+=)");
 
 		}
@@ -103,8 +87,6 @@ trait PersonnageProperties{
 	
 	public function setDescri($descri){
             if(!ExpressionsRegexUtils::isValidRegexFrLangWithNumbers($descri,1,1000)){
-			echo "<h1>".$descri."</h1>";
-			echo "<h1>ERREUR SUR {descri}</h1>" ;
 			throw new Exception("Erreur la description doit comporter au plus 1000 caractères"." (alphabétiques, chiffres ou &#-_+=)");
 
 		}
@@ -117,8 +99,6 @@ trait PersonnageProperties{
                 return;
             }
 		if(!ExpressionsRegexUtils::isValidRegexFrLangWithNumbers($urlImage,1,50)){
-			echo "<h1>".$urlImage."</h1>";
-			echo "<h1>ERREUR SUR {urlImage}</h1>" ;
 			throw new Exception("Erreur l'url de l'Image doit comporter au plus 50 caractères"." (alphabétiques ou chiffres)");
 
 		}

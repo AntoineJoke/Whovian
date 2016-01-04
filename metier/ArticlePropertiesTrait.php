@@ -19,37 +19,35 @@ trait ArticleProperties{
 		return $this->texte;
 	}
 
-	public function setId($id){ 
-		global $regex_FR_LANG_WITH_NUMBERS;
-		if(!isValidString($id,regex_FR_LANG_WITH_NUMBERS,1,8)){
-			throw new Exception("Erreur ... ... ..."." (...)");
-
+	public function setId($id){
+		if(!ExpressionsRegexUtils::isValidRegexFrLangWithNumbers($id,1,4)){
+			throw new Exception("Erreur l'id doit comporter au plus 4 chiffres"." (chiffres)");
 		}
 		$this->id =empty($id) ? "" : $id;
 	}
 
-	public function setTitre($titre){ 
-		global $regex_FR_LANG_WITH_NUMBERS;
-		if(!isValidString($titre,regex_FR_LANG_WITH_NUMBERS,1,20)){
-			throw new Exception("Erreur ... ... ..."." (...)");
-
+	public function setTitre($titre){
+		if(!ExpressionsRegexUtils::isValidRegexFrLangWithNumbers($titre,1,50)){
+			throw new Exception("Erreur le titre doit comporter au plus 50 caractères"." (alphabétiques)");
 		}
 		$this->titre =empty($titre) ? "" : $titre;
 	}
 
-	public function setUrlImage($urlImage){ 
-		global $regex_FR_LANG_WITH_NUMBERS;
-		if(!isValidString($urlImage,regex_FR_LANG_WITH_NUMBERS,1,100)){
-			throw new Exception("Erreur ... ... ..."." (...)");
+	public function setUrlImage($urlImage){
+		if($urlImage==NULL){
+                $this->urlImage =" ";
+                return;
+        }
+		if(!ExpressionsRegexUtils::isValidRegexFrLangWithNumbers($urlImage,1,50)){
+			throw new Exception("Erreur l'url de l'image doit comporter au plus 50 caractères"." (alphabétiques)");
 
 		}
 		$this->urlImage =empty($urlImage) ? "" : $urlImage;
 	}
 
-	public function setTexte($texte){ 
-		global $regex_FR_LANG_WITH_NUMBERS;
-		if(!isValidString($texte,regex_FR_LANG_WITH_NUMBERS,1,3000)){
-			throw new Exception("Erreur ... ... ..."." (...)");
+	public function setTexte($texte){
+		if(!ExpressionsRegexUtils::isValidRegexFrLangWithNumbers($texte,1,3000)){
+			throw new Exception("Erreur le texte doit comporter au plus 3000 caractères"." (alphabétiques)");
 
 		}
 		$this->texte =empty($texte) ? "" : $texte;

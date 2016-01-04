@@ -1,8 +1,11 @@
 <?=VueHtmlUtils ::enTeteHTML5('Bienvenue sur notre site','UTF-8',Config::getStyleSheetsURL()['default'])?>
 
-<h1><?=$modele->getTitle()?></h1>
-	<?=AdresseView::getHtmlDevelopped($modele->getData())?>
+<section>
 
-<a href="?">Revenir à l'accueil</a>
+	<?=ArticleView::getHtmlDevelopped($modele->getData())?>
+
+<a href="?action=get-all-news">[ Revenir à la liste des personnages ]</a>
+
+</section>
 
 <?=VueHtmlUtils::finDichierHtml5();?>

@@ -11,7 +11,7 @@ class ModelCollectionArticle extends Model
 		return $this->collectionArticle;
 	}
 
-	private function __construct(){
+	public function __construct(){
 		$this->collectionArticle=array();
 		$this->dataError = array();
 	}
