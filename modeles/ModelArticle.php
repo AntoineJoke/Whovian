@@ -27,7 +27,7 @@ class ModelArticle extends Model
 
 	public static function getModelArticle($id){
 		$model = new self(array());
-		$model->Article = ArticleGateway::getArticleById($model->dataError, $id);
+		$model->article = ArticleGateway::getArticleById($model->dataError, $id);
 		$model->title = "Article détaillé";
 		return $model;
 	}

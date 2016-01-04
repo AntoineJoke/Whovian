@@ -24,7 +24,6 @@ class Controleur{
 					case "get-all-news":      
 						$modele = ModelCollectionArticle::getModelArticleAll();
                                                 $a=$modele->getError();
-						var_dump($modele->getData());
 						if ($modele->getError()===false) {
 							require(Config::getVues()["afficheCollectionArticle"]);
 						}else{ 
