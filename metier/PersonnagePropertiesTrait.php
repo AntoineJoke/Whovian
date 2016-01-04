@@ -37,11 +37,7 @@ trait PersonnageProperties{
 
 	public function setId($id){
 		if(!ExpressionsRegexUtils::isValidRegexFrLangWithNumbers($id,1,4)){
-<<<<<<< HEAD
 			throw new Exception("Erreur l'id doit être compsé au plus de 4 chiffres"."(chiffres)");
-=======
-			throw new Exception("Erreur l'id doit être compsé de 4 chiffres exactement"."(chiffres)");
->>>>>>> origin/master
 		}
 
 		$this->id =empty($id) ? "" : $id;

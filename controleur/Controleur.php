@@ -24,6 +24,7 @@ class Controleur{
 					case "get-all-news":      
 						$modele = ModelCollectionArticle::getModelArticleAll();
                                                 $a=$modele->getError();
+						var_dump($modele->getData());
 						if ($modele->getError()===false) {
 							require(Config::getVues()["afficheCollectionArticle"]);
 						}else{ 
@@ -75,11 +76,7 @@ class Controleur{
 						break;
 
 					case "get":
-<<<<<<< HEAD
-						$id = filter_var($_REQUEST['numDocteur'],FILTER_SANITIZE_NUMBER_INT);
-=======
 						$id = filter_var($_REQUEST['id'],FILTER_SANITIZE_NUMBER_INT);
->>>>>>> origin/master
 						$modele = ModelPersonnage::getModelPersonnage($id);
 						require(Config::getVues()["affichePersonnage"]);
 						break;
@@ -136,13 +133,8 @@ class Controleur{
 						break;
 
 					case "delete":
-<<<<<<< HEAD
-						$numDocteur = filter_var($_REQUEST['numDocteur'],FILTER_SANITIZE_NUMBER_INT);
-						$modele = ModelPersonnage::deletePersonnage($numDocteur);
-=======
-						$id = filter_var($_REQUEST['id'],FILTER_SANITIZE_STRING);
+						$id = filter_var($_REQUEST['id'],FILTER_SANITIZE_NUMBER_INT);
 						$modele = ModelPersonnage::deletePersonnage($id);
->>>>>>> origin/master
 						if ($modele->getError()==false) {
 							require(Config::getVues()["affichePersonnage"]);
 						}else{
