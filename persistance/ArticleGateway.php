@@ -63,8 +63,12 @@ class ArticleGateway{
 
 
 	public static function postArticle(&$dataError,$article){
-		$statement = DataBaseManager::getInstance()->prepareAndExecuteQuery('UPDATE Article SET id=?,titre=?,urlImage=?,texte=? WHERE id=?', 
-			array($article->get()
+		$statement = DataBaseManager::getInstance()->prepareAndExecuteQuery('UPDATE Article SET titre=?,urlImage=?,texte=? WHERE id=?', 
+			array(
+					$article->getTitre(),
+					$article->getUrlImage(),
+					$article->getTexte(),
+					$article->getId()
 			)
 		);
 
@@ -80,14 +84,12 @@ class ArticleGateway{
 
 	public static function putArticle(&$dataError,$article){
 
-var_dump($article);
-
 		$statement = false;
 		$count = 0;
 
 		while($statement == false && $count<=3){
 			$count++;
-			$statement = DataBaseManager::getInstance()->prepareAndExecuteQuery('INSERT INTO Article(id,titre,urlImage,texte) VALUES(id,titre,urlImage,texte)',
+			$statement = DataBaseManager::getInstance()->prepareAndExecuteQuery('INSERT INTO Article(id,titre,urlImage,texte) VALUES(?,?,?,?)',
 				
 				array(
 					$article->getId(),
@@ -101,7 +103,6 @@ var_dump($article);
 			}  
 
 		}
-
 		if ($statement == false) {
 			$dataError['persistance-get'] = "Probleme d'exécution de la requête.";
 		}

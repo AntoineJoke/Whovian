@@ -3,7 +3,7 @@
 <h1>Saisie d'une news</h1>
 <section>
 
- <?=ArticleFormView::getDefaultFormHTML("?action=put-news")?>
+	<?=ArticleFormView::getDefaultFormHTML("?action=put-news")?>
 
 <a href="?"> [ Revenir à l'accueil ] </a>
 </section>

@@ -61,14 +61,14 @@ class Controleur{
 							require(Config::getVues()["afficheArticle"]);
 						}else{
 
-							require(Config::getVuesErreur()["saisieArticle"]);
+							require(Config::getVuesErreur()["editionArticle"]);
 						}
 						break;
 
 					case "put-news":
                         require (dirname(__FILE__)."/retrieveInputsArticle.php");
 						require (dirname(__FILE__)."/validationArticle.php");
-						$modele = ModelArticle::getModelArticlePut($titre,$urlImage,$texte);
+						$modele = ModelArticle::getModelArticlePut($id,$titre,$urlImage,$texte);
 						if ($modele->getError()==false) {
 							require(Config::getVues()["afficheArticle"]);
 						}else{

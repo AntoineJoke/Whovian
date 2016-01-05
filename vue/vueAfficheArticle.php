@@ -2,7 +2,7 @@
 
 <section>
 	<?=ArticleView::getHtmlDevelopped($modele->getData())?>
-<a href="?action=get-all-news">[ Revenir à la liste des personnages ]</a>
+<a href="?action=get-all-news">[ Revenir à la liste des news ]</a>
 </section>
 
 <?=VueHtmlUtils::finFichierHtml5();?>

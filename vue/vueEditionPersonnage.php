@@ -3,7 +3,7 @@
 <h1>Saisie d'une personnage</h1>
 <section>
     <?=PersonnageFormView::getFormHTML("?action=post",$modele->getData())?>
+<a href="?action=get-all"> [ Revenir aux personnages ] </a>
 </section>
-<a href="?">Revenir à l'accueil</a>
 
 <?=VueHtmlUtils::finFichierHTML5()?> 

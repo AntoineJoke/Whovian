@@ -75,14 +75,14 @@ class PersonnageGateway{
 	public static function postPersonnage(&$dataError,$personnage){
 		$statement = DataBaseManager::getInstance()->prepareAndExecuteQuery('UPDATE Personnage SET numDocteur=?,anneeDebut=?,anneeFin=?,acteur=?,expFav=?,descri=?,urlImage=? WHERE id=?', 
 			array(
-                                $personnage->getNumDocteur(),
-                        	$personnage->getAnneeDebut(),
+                $personnage->getNumDocteur(),
+                $personnage->getAnneeDebut(),
 				$personnage->getAnneeFin(),
 				$personnage->getActeur(),
 				$personnage->getExpFav(),
 				$personnage->getDescri(),
 				$personnage->getUrlImage(),
-                                $personnage->getId()
+                $personnage->getId()
 			)
 		);
 
@@ -120,7 +120,6 @@ class PersonnageGateway{
 			}  
 
 		}
-
 		if ($statement == false) {
 			$dataError['persistance-get'] = "Probleme d'exécution de la requête.";
 		}
