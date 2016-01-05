@@ -12,7 +12,7 @@ class ArticleView {
 
     public static function getHtmlDevelopped($article){
     	$a = "<h1>".$article->getTitre()."</h1>";
-		if($article->getUrlImage()!=" " && $article->getUrlImage()!=null){
+		if($article->getUrlImage()!=" " && $article->getUrlImage()!=null && $article->getUrlImage()!=""){
             $a = "$a <img src=\"http://localhost/Whovian/ressources/images/articles/".$article->getUrlImage()."\" align=\"left\" border=\"5\" height=\"200\" margin=\"15\">";
     	}
         $a = "$a <p>".$article->getTexte()."</p>";

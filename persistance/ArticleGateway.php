@@ -80,12 +80,15 @@ class ArticleGateway{
 
 	public static function putArticle(&$dataError,$article){
 
+var_dump($article);
+
 		$statement = false;
 		$count = 0;
 
 		while($statement == false && $count<=3){
 			$count++;
 			$statement = DataBaseManager::getInstance()->prepareAndExecuteQuery('INSERT INTO Article(id,titre,urlImage,texte) VALUES(id,titre,urlImage,texte)',
+				
 				array(
 					$article->getId(),
 					$article->getTitre(),
@@ -112,7 +115,7 @@ class ArticleGateway{
 
 
 	public static function deleteArticle(&$dataError,$id){
-		$article = self::getArticleByNumDocteur($dataError,$id);
+		$article = self::getArticleById($dataError,$id);
 
 		if (empty($dataError)) {
 			$statement = DataBaseManager::getInstance()->prepareAndExecuteQuery('DELETE FROM Article WHERE id=?',array($id));

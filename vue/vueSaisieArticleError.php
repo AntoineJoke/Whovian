@@ -1,7 +1,9 @@
-<?=VueHtmlUtils ::enTeteHTML5('Bienvenue sur notre site','UTF-8',Config::getStyleSheetsURL()['default'])?>
+<?=VueHtmlUtils::enTeteHTML5('Bienvenue sur notre site','UTF-8',Config::getStyleSheetsURL()['default'])?>
 
-<h1>Erreur de saisie d'une adresse</h1>
-<?=AdresseFormView ::getFormErrorsHtml("?action=put",$modele->getData(),$modele->getError())?>
+<h1>Erreur de saisie d'une news</h1>
+<section>
+<?=ArticleFormView::getFormErrorsHtml("?action=put-news",$modele->getData(),$modele->getError())?>
+<a href="?"> [ Revenir à l'accueil ] </a>
+</section>
 
-<a href="?">Revenir à l'accueil</a>
-<?=VueHtmlUtils::finDichierHtml5();?>
+<?=VueHtmlUtils::finFichierHtml5();?>

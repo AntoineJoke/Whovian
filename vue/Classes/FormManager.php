@@ -13,7 +13,7 @@ class FormManager {
             }
             return "<form method=\"".$method."\" action=\"". $action ."\" ". $css_class_option.$extraOptions.">\n";
 	 }
-	public static function endForm() { 
+	public static function endForm() {
 	    	return "</form>";
 	}
 
@@ -21,17 +21,17 @@ class FormManager {
 	    public static function addInput($labelText , $type , $name, $id , $value=null , $extraOptions="", $noBR=false ) { 
 	    	$valueOption = ($value == null) ? "" : " value=\"".$value."\" ";
                 $returnText="";
-			if ($extraOptions == null) { 
+			if ($extraOptions == null) {
 				$extraOptions="";
 			} 
 
-			if ($labelText !=null && $labelText !=""){ 
+			if ($labelText !=null && $labelText !=""){
                             $returnText .= "<label for=\"".$id."\">". $labelText ."</label>\n";
 			} 
 
 			$returnText .= "<input type=\"".$type."\" name=\"".$name."\" id=\"".$id."\"  ".$valueOption." ".$extraOptions." />\n"; 
 
-			if (!$noBR){ 
+			if (!$noBR){
 				$returnText .= "<br/>\n";
 			}
 			return $returnText;
@@ -60,6 +60,7 @@ class FormManager {
 
 
 		public static function addTextAreaInput($labelText , $name, $id , $rows , $cols , $value=null , $extraOptions="") {
+			$returnText = "";
 
 			$valueOption = ($value == null) ? "" : $value;
 			if ($extraOptions == null) {
@@ -78,8 +79,7 @@ class FormManager {
 			$returnText .= "</p>\n";
 
 			return $returnText;
-
-	    } 
+	    }
 
 
 	    public static function addUploadInput($labelText , $name, $id , $size , $value="" , $extraOptions="") {

@@ -12,7 +12,8 @@ class Config
 	public static function getVuesErreur(){
 		global $rootDirectory;
 		$vueDirectory = $rootDirectory."vue/";
-		return array("default" => $vueDirectory."vueErreurDefault.php","saisiePersonnage" => $vueDirectory."vueSaisiePersonnageError.php");
+		return array("default" => $vueDirectory."vueErreurDefault.php","saisiePersonnage" => $vueDirectory."vueSaisiePersonnageError.php"
+			,"saisieArticle" => $vueDirectory."vueSaisieArticleError.php");
 	}
 
 

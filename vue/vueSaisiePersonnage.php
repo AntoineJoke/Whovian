@@ -3,7 +3,7 @@
 <h1>Saisie d'une personnage</h1>
 <section>
  <?=PersonnageFormView::getDefaultFormHTML("?action=put")?>
+<a href="?"> [ Revenir à l'accueil ] </a>
 </section>
-<a href="?">Revenir à l'accueil</a>
 
-<?=VueHtmlUtils::finFichierHTML5()?> 
+<?=VueHtmlUtils::finFichierHTML5()?>

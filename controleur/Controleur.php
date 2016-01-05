@@ -54,8 +54,9 @@ class Controleur{
 						break;
 
 					case "post-news":
-						require (dirname(__FILE__)."/validationPersonnage.php");
-						$modele = ModelArticle::getModelArticlePost($id,$anneeDebut,$anneeFin,$acteur,$expFav,$desc,$urlImage);
+                        require (dirname(__FILE__)."/retrieveInputsArticle.php");
+						require (dirname(__FILE__)."/validationArticle.php");
+						$modele = ModelArticle::getModelArticlePost($id,$titre,$urlImage,$texte);
 						if ($modele->getError()==false) {
 							require(Config::getVues()["afficheArticle"]);
 						}else{
@@ -65,8 +66,9 @@ class Controleur{
 						break;
 
 					case "put-news":
-						require (dirname(__FILE__)."/validationPersonnage.php");
-						$modele = ModelArticle::getModelArticlePut($anneeDebut,$anneeFin,$acteur,$expFav,$desc,$urlImage);
+                        require (dirname(__FILE__)."/retrieveInputsArticle.php");
+						require (dirname(__FILE__)."/validationArticle.php");
+						$modele = ModelArticle::getModelArticlePut($titre,$urlImage,$texte);
 						if ($modele->getError()==false) {
 							require(Config::getVues()["afficheArticle"]);
 						}else{
@@ -119,7 +121,7 @@ class Controleur{
 						break;
 
 					case "post":
-                                                require (dirname(__FILE__)."/retrieveInputsPerso.php");
+                        require (dirname(__FILE__)."/retrieveInputsPerso.php");
 						require (dirname(__FILE__)."/validationPersonnage.php");
 						$modele = ModelPersonnage::getModelPersonnagePost($id,$numDocteur,$anneeDebut,$anneeFin,$acteur,$expFav,$descri,$urlImage);
 						if ($modele->getError()==false) {
@@ -131,7 +133,7 @@ class Controleur{
 						break;
 
 					case "put":
-                                                require (dirname(__FILE__)."/retrieveInputsPerso.php");
+                        require (dirname(__FILE__)."/retrieveInputsPerso.php");
 						require (dirname(__FILE__)."/validationPersonnage.php");
 						$modele = ModelPersonnage::getModelPersonnagePut($numDocteur,$anneeDebut,$anneeFin,$acteur,$expFav,$descri,$urlImage);
 						if ($modele->getError()==false) {
