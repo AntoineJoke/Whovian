@@ -19,3 +19,5 @@ $texte="";
 if(isset($_POST['texte'])){
     $texte=  htmlentities($_POST['texte'],ENT_QUOTES,"UTF-8");
 }
+
+?>

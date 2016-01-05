@@ -40,6 +40,10 @@ class ExpressionsRegexUtils{
     * avec conditions de longueur (par exemple pour un champ obligatoire)
     */
 	public static function isValidRegexFrLangWithNumbers($chaine, $minLenth, $maxLenth){
+		$a = strlen($chaine);
+		//echo "<h1>".$a."</h1>";
+		//echo "<h1>".$minLenth."//".$maxLenth."</h1>";
+		//echo "<h1>-------</h1>";
 		return (isset($chaine) &&
 			    strlen($chaine) >= $minLenth && strlen($chaine) <= $maxLenth
 				/*&& preg_match(self::getRegexFrLangWithNumbers(), $chaine)*/);

@@ -9,13 +9,13 @@ class ArticleFormView {
 
 
  	public static function getFormHtml ($action,$article) {
- 		$htmlCode = FormManager ::beginForm("post", $action ) ;
- 		$htmlCode .= FormManager ::addTextInput ( "Id" , "id" , "id" , "4" ,html_entity_decode($article->getId(), ENT_QUOTES,"UTF-8" ) )."<br/>";
- 		$htmlCode.= FormManager ::addTextInput("Titre" , "titre" , "titre" , "50" ,html_entity_decode($article->getTitre() , ENT_QUOTES, "UTF-8" ) ) . "<br/>" ;
- 		$htmlCode.= FormManager ::addTextInput("UrlImage" , "urlImage" , "urlImage" , "50" ,html_entity_decode($article->getUrlImage() , ENT_QUOTES, "UTF-8" ) ) . "<br/>" ;
- 		$htmlCode.= FormManager ::addTextAreaInput("Texte" , "Texte" , "texte" , "5" , "100", html_entity_decode($article->getTexte() , ENT_QUOTES, "UTF-8" ) ) . "<br/>" ;
- 		$htmlCode .= FormManager ::addSubmitButton("Envoyer" , "class =\"sansLabel \"")."<br/>";
- 		$htmlCode .= FormManager ::endForm();
+ 		$htmlCode=FormManager::beginForm("post", $action ) ;
+ 		$htmlCode.=FormManager::addTextInput ( "Id" , "id" , "id" , "4" ,html_entity_decode($article->getId(), ENT_QUOTES,"UTF-8" ) )."<br/>";
+ 		$htmlCode.=FormManager::addTextInput("Titre" , "titre" , "titre" , "50" ,html_entity_decode($article->getTitre() , ENT_QUOTES, "UTF-8" ) ) . "<br/>" ;
+ 		$htmlCode.=FormManager::addTextInput("UrlImage" , "urlImage" , "urlImage" , "50" ,html_entity_decode($article->getUrlImage() , ENT_QUOTES, "UTF-8" ) ) . "<br/>" ;
+ 		$htmlCode.=FormManager::addTextAreaInput("Texte" , "texte" , "texte" , "5" , "100", html_entity_decode($article->getTexte() , ENT_QUOTES, "UTF-8" ) ) . "<br/>" ;
+ 		$htmlCode.=FormManager::addSubmitButton("Envoyer" , "class =\"sansLabel \"")."<br/>";
+ 		$htmlCode.=FormManager::endForm();
 
 		return $htmlCode ;
  	}
@@ -29,7 +29,7 @@ class ArticleFormView {
  		$htmlCode .= FormManager ::addHiddenInput ( "id" , "id" ,html_entity_decode($article->getId(), ENT_QUOTES,"UTF-8" ) )."<br/>";
  		$htmlCode.= FormManager ::addTextInput("Titre" , "titre" , "titre" , "50" ,html_entity_decode($article->getTitre() , ENT_QUOTES, "UTF-8" ) ) . "<br/>" ;
  		$htmlCode.= FormManager ::addTextInput("UrlImage" , "urlImage" , "urlImage" , "50" ,html_entity_decode($article->getUrlImage() , ENT_QUOTES, "UTF-8" ) ) . "<br/>" ;
- 		$htmlCode.= FormManager ::addTextAreaInput("Texte" , "Texte" , "texte" , "5" , "100", html_entity_decode($article->getTexte() , ENT_QUOTES, "UTF-8" ) ) . "<br/>" ;
+ 		$htmlCode.= FormManager ::addTextAreaInput("Texte" , "texte" , "texte" , "5" , "100", html_entity_decode($article->getTexte() , ENT_QUOTES, "UTF-8" ) ) . "<br/>" ;
  		$htmlCode .= FormManager ::addSubmitButton("Envoyer" , "class =\"sansLabel \"")."<br/>";
  		$htmlCode .= FormManager ::endForm();
 

@@ -72,7 +72,7 @@ class ArticleGateway{
 			)
 		);
 
-		if ($statement == false ) {
+		if ($statement === false ) {
 			$dataError['persistance-get'] = "Probleme d'exécution de la requête.";
 		}
 
@@ -87,7 +87,7 @@ class ArticleGateway{
 		$statement = false;
 		$count = 0;
 
-		while($statement == false && $count<=3){
+		while($statement === false && $count<=3){
 			$count++;
 			$statement = DataBaseManager::getInstance()->prepareAndExecuteQuery('INSERT INTO Article(id,titre,urlImage,texte) VALUES(?,?,?,?)',
 				
@@ -98,12 +98,9 @@ class ArticleGateway{
 					$article->getTexte()
 				)
 			);
-			if ($statement->rowCount()<1) {
-		  		$statement = false;
-			}  
 
 		}
-		if ($statement == false) {
+		if ($statement === false) {
 			$dataError['persistance-get'] = "Probleme d'exécution de la requête.";
 		}
 		else{
@@ -120,7 +117,7 @@ class ArticleGateway{
 
 		if (empty($dataError)) {
 			$statement = DataBaseManager::getInstance()->prepareAndExecuteQuery('DELETE FROM Article WHERE id=?',array($id));
-			if ($statement == false) {
+			if ($statement === false) {
 				$dataError['persistance-get'] = "Probleme d'exécution de la requête.";
 			}
 				DataBaseManager::destroyQueryResults($statement);

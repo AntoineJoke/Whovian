@@ -34,7 +34,7 @@ class ModelArticle extends Model
 
 	public static function getModelArticlePost($id, $titre, $urlImage, $texte){
 		$model = new self(array());
-		$article = ArticleFabrique::getArticle($model->dataError,$titre, $urlImage, $texte);
+		$article = ArticleFabrique::getArticle($model->dataError,$id, $titre, $urlImage, $texte);
 		$model->article = ArticleGateway::postArticle($model->dataError, $article);
 		$model->title = "L'article a été mis à jour";
 		return $model;

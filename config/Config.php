@@ -13,7 +13,8 @@ class Config
 		global $rootDirectory;
 		$vueDirectory = $rootDirectory."vue/";
 		return array("default" => $vueDirectory."vueErreurDefault.php","saisiePersonnage" => $vueDirectory."vueSaisiePersonnageError.php"
-			,"saisieArticle" => $vueDirectory."vueSaisieArticleError.php");
+			,"saisieArticle" => $vueDirectory."vueSaisieArticleError.php"
+			,"editionArticle"=>$vueDirectory."vueEditionArticleError.php");
 	}
 
 
