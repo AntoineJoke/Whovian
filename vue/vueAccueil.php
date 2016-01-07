@@ -2,9 +2,11 @@
 
 <section>
 	<h2>Bienvenu sur Whovian</h2>
-	<p>Ce site ne sera jamais mis à jour. On fait tout ça juste pour avoir une bonne note o/ !<p>
-	<p>Pour le prouver, voici un lorem ispum généré en quelques secondes sur le net :</p>
-	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis consequat molestie nunc et aliquet. Etiam tincidunt ultricies facilisis. Integer venenatis mi dolor. Donec sollicitudin diam sit amet luctus egestas. Suspendisse non ultrices augue. Praesent tempus tellus vel velit hendrerit interdum. Pellentesque lacinia lorem sit amet orci iaculis vulputate. Pellentesque eu pharetra urna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Aliquam congue, neque quis ornare scelerisque, sem enim maximus eros, eu feugiat risus tellus sed odio. Vestibulum sagittis dolor ac urna sagittis molestie. Nulla egestas nisi diam, vel rhoncus lacus dignissim et.</p>
+	<p>Ce site, créé par la grande communauté Whovienne, est dédié à l'univers du Docteur, ce personnage énigmatique et formidable.<p>
+	<p>Vous trouverez ici des articles résumant tout ce qu'il y a à savoir sur l'actualité du show. Mais ce n'est pas tou !
+		Vous trouverez aussi des fiches réccâpitulative de chaque docteur de la série (pratique pour les deux du fond qui n'ont pas suivi ou ceux qui souhaiterait prendre le show en cours, tout est possible après tout)
+		Il y as même les fiches de tout les anciens docteurs ! (au grand bonheur de tous !)</p>
+	<p>Passez un agréable moment sur WHOVIAN.COM ! Et longue vie au Docteur !</p>
 </section>
 
 <?=VueHtmlUtils::finFichierHTML5()?>
