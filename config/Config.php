@@ -5,16 +5,20 @@ class Config
 		global $rootDirectory;
 		$vueDirectory = $rootDirectory."vue/";
 		return array("default" => $vueDirectory."vueAccueil.php","saisiePersonnage" => $vueDirectory."vueSaisiePersonnage.php", "editionPersonnage" => $vueDirectory."vueEditionPersonnage.php", "affichePersonnage" => $vueDirectory."vueAffichePersonnage.php","afficheCollectionPersonnage" => $vueDirectory."vueCollectionPersonnage.php"
-			,"saisieArticle" => $vueDirectory."vueSaisieArticle.php", "editionArticle" => $vueDirectory."vueEditionArticle.php", "afficheArticle" => $vueDirectory."vueAfficheArticle.php","afficheCollectionArticle" => $vueDirectory."vueCollectionArticle.php","connexion"=>$vueDirectory."vueSaisieIdentifiant.php");
+			,"saisieArticle" => $vueDirectory."vueSaisieArticle.php", "editionArticle" => $vueDirectory."vueEditionArticle.php", "afficheArticle" => $vueDirectory."vueAfficheArticle.php","afficheCollectionArticle" => $vueDirectory."vueCollectionArticle.php","connexion"=>$vueDirectory."vueSaisieIdentifiant.php","connexionOk"=>$vueDirectory."vueConnexionOk.php");
 	
 	}
 
 	public static function getVuesErreur(){
 		global $rootDirectory;
 		$vueDirectory = $rootDirectory."vue/";
+<<<<<<< HEAD
+		return array("default" => $vueDirectory."vueErreurDefault.php","saisiePersonnage" => $vueDirectory."vueSaisiePersonnageError.php","connexion"=>$vueDirectory."vueSaisieIdentifiantError.php","saisieArticle" => $vueDirectory."vueSaisieArticleError.php","editionArticle"=>$vueDirectory."vueEditionArticleError.php","editionPersonnage"=>$vueDirectory."vueEditionPersonnageError.php");
+=======
 		return array("default" => $vueDirectory."vueErreurDefault.php","saisiePersonnage" => $vueDirectory."vueSaisiePersonnageError.php"
 			,"saisieArticle" => $vueDirectory."vueSaisieArticleError.php"
 			,"editionArticle"=>$vueDirectory."vueEditionArticleError.php");
+>>>>>>> origin/master
 	}
 
 
