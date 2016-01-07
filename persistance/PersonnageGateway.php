@@ -86,7 +86,7 @@ class PersonnageGateway{
 			)
 		);
 
-		if ($statement == false ) {
+		if ($statement === false ) {
 			$dataError['persistance-get'] = "Probleme d'exécution de la requête.";
 		}
 
@@ -101,7 +101,7 @@ class PersonnageGateway{
 		$statement = false;
 		$count = 0;
 
-		while($statement == false && $count<=3){
+		while($statement === false && $count<=3){
 			$count++;
 			$statement = DataBaseManager::getInstance()->prepareAndExecuteQuery('INSERT INTO Personnage(id,numDocteur,anneeDebut,anneeFin,acteur,expFav,descri,urlImage) VALUES(?,?,?,?,?,?,?,?)',
 				array(
@@ -115,12 +115,12 @@ class PersonnageGateway{
 					$personnage->getUrlImage()
 				)
 			);
-			if ($statement->rowCount()<1) {
-		  		$statement = false;
-			}  
+			
 
 		}
-		if ($statement == false) {
+
+		if ($statement === false) {
+
 			$dataError['persistance-get'] = "Probleme d'exécution de la requête.";
 		}
 		else{
@@ -137,7 +137,7 @@ class PersonnageGateway{
 
 		if (empty($dataError)) {
 			$statement = DataBaseManager::getInstance()->prepareAndExecuteQuery('DELETE FROM Personnage WHERE id=?',array($id));
-			if ($statement == false) {
+			if ($statement === false) {
 				$dataError['persistance-get'] = "Probleme d'exécution de la requête.";
 			}
 				DataBaseManager::destroyQueryResults($statement);

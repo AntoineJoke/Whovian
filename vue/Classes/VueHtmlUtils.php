@@ -15,13 +15,18 @@ class VueHtmlUtils{
 		echo "</head>\n<body>\n";
 		echo '<div id="wrap">';
 		echo '<header>';
-		echo '<h1>Whovians</h1>';
+		echo '<h1>Whovian</h1>';
 		echo '<nav>';
 		echo '<ul>';
 		echo '<li class="menu"><a href="index.php">Accueil</a></li>';
 		echo '<li class="menu"><a href="?action=get-all-news">News</a></li>';
 		echo '<li class="menu"><a href="?action=get-all">Biographies</a></li>';
-		echo '<li class="menu"><a href="?action=saisie-co">Connexion</a></li>';
+                if(isset($_SESSION['login'])){
+                    echo '<li class="menu"><a href="?action=deco">Deconnexion</a></li>';
+                }else{
+                echo '<li class="menu"><a href="?action=saisie-co">Connexion</a></li>';
+                
+                }
 		echo '</ul>';
 		echo '</nav>';
 		echo '</header>';

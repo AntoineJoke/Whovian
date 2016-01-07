@@ -20,6 +20,7 @@ class IdentifiantFormView {
 
 
  	private static function addErrorMsg ($dataErrors, $fieldName) {
+            $htmlCode="";
 		if(!empty($dataErrors[$fieldName])){
  			$htmlCode .="<span class=\"errorMsg\">".$dataErrors[$fieldName]."</span><br/>" ;
  		}
@@ -27,13 +28,13 @@ class IdentifiantFormView {
  	}
 
 
- 	public static function getFormErrorsHtml ($action , $identifiant , &$dataErrors ){
-
+ 	public static function getFormErrorsHtml ($action , $identifiant , $dataErrors ){
+		
  		$htmlCode = FormManager ::beginForm("post",$action) ;
 			$htmlCode .=self ::addErrorMsg($dataErrors, "login");
-			$htmlCode .=FormManager ::addTextInput("Login","login","login","8",html_entity_decode($identifiant>getLogin( ),ENT_QUOTES, "UTF-8"))."<br/>";
+			$htmlCode .=FormManager ::addTextInput("Login","login","login","8",html_entity_decode($identifiant->getLogin( ),ENT_QUOTES, "UTF-8"))."<br/>";
 			$htmlCode .=self ::addErrorMsg ( $dataErrors , "mdp" ) ;
-			$htmlCode .=FormManager ::addTextInput ( "Mot de Passe","mdp","mdp","10" ,html_entity_decode ( $identifiant>getMdp( ),ENT_QUOTES,"UTF-8"))."<br/>";
+			$htmlCode .=FormManager ::addPasswordInput ( "Mot de Passe","mdp","mdp","10" ,html_entity_decode ( $identifiant->getMdp( ),ENT_QUOTES,"UTF-8"))."<br/>";
 
 
 			$htmlCode .= FormManager ::addSubmitButton("Envoyer","class=\"sansLabel\"")."<br/>";
@@ -45,8 +46,8 @@ class IdentifiantFormView {
 
 	public static function getHiddenFormHtml($action,$identifiant,$buttonText) {
 		$htmlCode = FormManager ::beginForm ("post",$action) ;
-			$htmlCode .= FormManager ::addHiddenInput ("login","login",html_entity_decode($identifiant>getLogin(),ENT_QUOTES,"UTF−8"));
-			$htmlCode .= FormManager ::addHiddenInput ("mdp","mdp",html_entity_decode($identifiant>getMdp(),ENT_QUOTES,"UTF−8"));
+			$htmlCode .= FormManager ::addHiddenInput ("login","login",html_entity_decode($identifiant->getLogin(),ENT_QUOTES,"UTF−8"));
+			$htmlCode .= FormManager ::addHiddenInput ("mdp","mdp",html_entity_decode($identifiant->getMdp(),ENT_QUOTES,"UTF−8"));
 			$htmlCode .= FormManager ::addSubmitButton($buttonText,"class=\"sansLabel\"");
 		$htmlCode .= FormManager ::endForm();
 

@@ -2,9 +2,8 @@
 
 <h1>Saisie des identifiants</h1>
 <section>
- <?=IdentifiantFormView::getDefaultFormHTML("?action=put")?>
+ <?=IdentifiantFormView::getDefaultFormHTML("?action=get-co")?>
 </section>
-<a href="?">Revenir à l'accueil</a>
 
 <?=VueHtmlUtils::finFichierHTML5()?> 
 

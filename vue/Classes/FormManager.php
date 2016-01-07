@@ -60,8 +60,8 @@ class FormManager {
 
 
 		public static function addTextAreaInput($labelText , $name, $id , $rows , $cols , $value=null , $extraOptions="") {
-			$returnText = "";
 
+			$returnText="";
 			$valueOption = ($value == null) ? "" : $value;
 			if ($extraOptions == null) {
 				$extraOptions="";

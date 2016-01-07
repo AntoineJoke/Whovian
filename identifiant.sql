@@ -36,9 +36,6 @@ CREATE TABLE IF NOT EXISTS `identifiant` (
 --
 
 INSERT INTO `identifiant` (`login`, `password`) VALUES
-('admin', 'admin'),
-('admin', 'admin'),
-('admin', 'admin'),
 ('admin', 'admin');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

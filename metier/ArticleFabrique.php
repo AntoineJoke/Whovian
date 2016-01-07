@@ -1,5 +1,5 @@
 <?php
-require_once(dirname(__FILE__)."./Article.php");
+require_once(dirname(__FILE__)."/Article.php");
 
 class ArticleFabrique{ 
 

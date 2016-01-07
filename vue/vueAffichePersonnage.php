@@ -1,4 +1,7 @@
- <?=VueHtmlUtils::enTeteHTML5('Affiche Personnage','UTF-8',Config::getStyleSheetsURL()['default'])?>
+<?php
+    session_start();
+?> 
+<?=VueHtmlUtils::enTeteHTML5('Affiche Personnage','UTF-8',Config::getStyleSheetsURL()['default'])?>
 
 <h1><?=$modele->getTitle()?></h1>
 

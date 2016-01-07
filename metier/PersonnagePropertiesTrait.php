@@ -71,7 +71,7 @@ trait PersonnageProperties{
 
 	public function setActeur($acteur){ 
 		if(!ExpressionsRegexUtils::isValidRegexFrLang($acteur,1,30)){
-			throw new Exception("Erreur l'acteur doit comporter au plus 50 caractères"." (alphabétiques)");
+			throw new Exception("Erreur l'acteur doit comporter au plus 30 caractères"." (alphabétiques)");
 
 		}
 		$this->acteur =empty($acteur) ? "" : $acteur;

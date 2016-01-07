@@ -1,7 +1,8 @@
-<?=VueHtmlUtils ::enTeteHTML5('Bienvenue sur notre site','UTF-8',Config::getStyleSheetsURL()['default'])?>
+<?=VueHtmlUtils ::enTeteHTML5('Saisie Identifiant','UTF-8',Config::getStyleSheetsURL()['default'])?>
 
-<h1>Erreur de saisie d'une adresse</h1>
-<?=AdresseFormView ::getFormErrorsHtml("?action=put",$modele->getData(),$modele->getError())?>
+<h1>Erreur de saisie d'un identifiant</h1>
+<section>
+ <?=IdentifiantFormView::getFormErrorsHtml("?action=get-co",$modele->getData(),$modele->getError())?>
+</section>
 
-<a href="?">Revenir à l'accueil</a>
-<?=VueHtmlUtils::finDichierHtml5();?>
+<?=VueHtmlUtils::finFichierHtml5();?>
