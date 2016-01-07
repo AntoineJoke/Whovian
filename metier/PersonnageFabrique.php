@@ -23,8 +23,9 @@ class PersonnageFabrique{
 			$dataErrors['numDocteur']=$e->getMessage()."<br/>\n";
 
 		}
-
-		try{
+                
+                try{
+                    
 			$perso->setAnneeDebut($anneeDebut);
 		}catch (Exception $e){ 
 			$dataErrors['anneeDebut']=$e->getMessage()."<br/>\n";
@@ -53,6 +54,7 @@ class PersonnageFabrique{
 		}
 		
 		try{
+    
 			$perso->setDescri($descri);
 		}catch (Exception $e){ 
 			$dataErrors['descri']=$e->getMessage()."<br/>\n";

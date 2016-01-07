@@ -1,25 +1,25 @@
 <?php
-require_once("./Identifiant.php");
+require_once("/Identifiant.php");
 
 class IdentifiantFabrique{ 
 	public static function getIdentifiant(&$dataErrors, $login=null, $mdp=null){ 
-		$login=Identifiant::getDefaultIdentifiant();
+		$identifiant=Identifiant::getDefaultIdentifiant();
 		$dataErrors=array();
 
 		try{ 
-			$login->setLogin($login);
+			$identifiant->setLogin($login);
 		}catch (Exception $e){
 			$dataErrors['login']=$e->getMessage()."<br/>\n";
 
 		}
 
 		try{
-			$mdp->setMdp($mdp);
+			$identifiant->setMdp($mdp);
 		}catch (Exception $e){ 
 			$dataErrors['mdp']=$e->getMessage()."<br/>\n";
 			
 		}
-		return $login;
+		return $identifiant;
 	}
 
 }
