@@ -1,3 +1,6 @@
+<?php
+    session_start();
+?>
 <?=VueHtmlUtils::enTeteHTML5('Accueil','UTF-8',Config::getStyleSheetsURL()['default'])?>
 
 <section>
