@@ -39,9 +39,9 @@ class ModelPersonnage extends Model
 		return $model;
 	}
 
-	public static function getModelPersonnagePut($numDoctor, $anneeDebut, $anneeFin, $acteur, $expFav,$descri,$urlImage){
+	public static function getModelPersonnagePut($id,$numDoctor, $anneeDebut, $anneeFin, $acteur, $expFav,$descri,$urlImage){
 		$model = new self(array());
-		$personnage = PersonnageFabrique::getPersonnage($model->dataError,"0000", $numDoctor, $anneeDebut, $anneeFin, $acteur, $expFav,$descri,$urlImage);
+		$personnage = PersonnageFabrique::getPersonnage($model->dataError,$id, $numDoctor, $anneeDebut, $anneeFin, $acteur, $expFav,$descri,$urlImage);
 		$model->personnage = PersonnageGateway::putPersonnage($model->dataError, $personnage);
 		$model->title = "Le personnage à été inséré";
 		return $model;
