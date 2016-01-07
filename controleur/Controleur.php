@@ -58,10 +58,6 @@ class Controleur{
 
 					case "edit-news":
 						$id = filter_var($_REQUEST['id'],FILTER_SANITIZE_NUMBER_INT);
-<<<<<<< HEAD
-=======
-						echo "<h1> { ".$id." } </h1>";
->>>>>>> origin/master
 						$modele = ModelArticle::getModelArticle($id);
 						if ($modele->getError()==false) {
 							require(Config::getVues()["editionArticle"]);
@@ -74,14 +70,6 @@ class Controleur{
 					case "post-news":
                         require (dirname(__FILE__)."/retrieveInputsArticle.php");
 						require (dirname(__FILE__)."/validationArticle.php");
-<<<<<<< HEAD
-=======
-
-						echo "<h1> [ ".$id." ] </h1>";
-						echo "<h1> [ ".$titre." ] </h1>";
-						echo "<h1> [ ".$urlImage." ] </h1>";
-						echo "<h1> [ ".$texte." ] </h1>";
->>>>>>> origin/master
 						$modele = ModelArticle::getModelArticlePost($id,$titre,$urlImage,$texte);
 						if ($modele->getError()==false) {
 							require(Config::getVues()["afficheArticle"]);

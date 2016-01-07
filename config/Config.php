@@ -12,13 +12,7 @@ class Config
 	public static function getVuesErreur(){
 		global $rootDirectory;
 		$vueDirectory = $rootDirectory."vue/";
-<<<<<<< HEAD
 		return array("default" => $vueDirectory."vueErreurDefault.php","saisiePersonnage" => $vueDirectory."vueSaisiePersonnageError.php","connexion"=>$vueDirectory."vueSaisieIdentifiantError.php","saisieArticle" => $vueDirectory."vueSaisieArticleError.php","editionArticle"=>$vueDirectory."vueEditionArticleError.php","editionPersonnage"=>$vueDirectory."vueEditionPersonnageError.php");
-=======
-		return array("default" => $vueDirectory."vueErreurDefault.php","saisiePersonnage" => $vueDirectory."vueSaisiePersonnageError.php"
-			,"saisieArticle" => $vueDirectory."vueSaisieArticleError.php"
-			,"editionArticle"=>$vueDirectory."vueEditionArticleError.php");
->>>>>>> origin/master
 	}
 
 
