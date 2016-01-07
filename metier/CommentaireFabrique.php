@@ -1,6 +1,4 @@
-<<<<<<< HEAD
-//fait par Quentin
-=======
+
 <?php
 require_once(dirname(__FILE__)."/Commentaire.php");
 
@@ -44,4 +42,3 @@ class CommentaireFabrique{
 
 ?>
 
->>>>>>> origin/master

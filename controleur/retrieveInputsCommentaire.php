@@ -1,10 +1,5 @@
 <?php
-
 $idCom="";
-if(isset($_POST['idCom'])){
-    $idCom=  htmlentities($_POST['idCom'],ENT_QUOTES,"UTF-8");
-}
-
 $idArticle="";
 if(isset($_POST['idArticle'])){
     $idArticle=  htmlentities($_POST['idArticle'],ENT_QUOTES,"UTF-8");

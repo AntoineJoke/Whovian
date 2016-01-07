@@ -40,9 +40,9 @@ class ModelArticle extends Model
 		return $model;
 	}
 
-	public static function getModelArticlePut($id,$titre, $urlImage, $texte){
+	public static function getModelArticlePut($titre, $urlImage, $texte){
 		$model = new self(array());
-		$article = ArticleFabrique::getArticle($model->dataError,$id, $titre, $urlImage, $texte);
+		$article = ArticleFabrique::getArticle($model->dataError," ", $titre, $urlImage, $texte);
 		$model->article = ArticleGateway::putArticle($model->dataError, $article);
 		$model->title = "L'article à été inséré";
 		return $model;

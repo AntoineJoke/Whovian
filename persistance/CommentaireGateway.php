@@ -2,10 +2,10 @@
 class CommentaireGateway{
 
 
-	public static function getCommentaireById(&$dataError,$id){
-		if(isset($id)){
+	public static function getCommentaireById(&$dataError,$idCom){
+		if(isset($idCom)){
 			try{
-				$statement=DataBaseManager::getInstance()->prepareAndExecuteQuery('SELECT *FROM Commentaire WHERE id=?',array($id));
+				$statement=DataBaseManager::getInstance()->prepareAndExecuteQuery('SELECT *FROM Commentaire WHERE idCom=?',array($idCom));
 
 			}
 			catch(Exception $e){
@@ -22,10 +22,10 @@ class CommentaireGateway{
 				}
 
 				if ($count!=1) {
-					$dataError['persistance-get'] = "Personnage introuvable.";
+					$dataError['persistance-get'] = "Commentaire introuvable.";
 				}
 			}else{
-				$dataError['persistance-get'] = "Personnage introuvable.";			
+				$dataError['persistance-get'] = "Commentaire introuvable.";			
 			}
 		}else{
 			$dataError['persistance-get'] = "Impossible d'accéder aux données.";
@@ -36,7 +36,39 @@ class CommentaireGateway{
 
 	}
 
+        public static function getCommentaireAllByIdArticle(&$dataError,$idArticle){
+            try {
+			
+			$statement = DataBaseManager::getInstance()->prepareAndExecuteQuery('SELECT * FROM Commentaire WHERE idArticle=?', array($idArticle));
+                        
+                        
+		} catch (Exception $e) {
+                    
+			$dataError['persistance-get'] = "Impossible d'accéder aux données.";
+		}
 
+		$collectionCommentaire = array();
+                
+		if($statement!==false){
+                    
+			foreach ($statement as $row) {
+				$commentaire = CommentaireFabrique::getCommentaire($dataError,$row['idCom'],$row['idArticle'],$row['login'],$row['texte']);
+				$collectionCommentaire[]=$commentaire;
+                                
+			}
+		}
+		else{
+                    
+			$dataError['persistance-get'] = "Aucun commentaire trouvable.";
+		}
+                
+                
+		DataBaseManager::destroyQueryResults($statement);
+		return $collectionCommentaire;
+                
+	}
+
+        
 	public static function getCommentaireAll(&$dataError){
             
 		try {
@@ -73,12 +105,13 @@ class CommentaireGateway{
 
 
 	public static function postCommentaire(&$dataError,$commentaire){
-		$statement = DataBaseManager::getInstance()->prepareAndExecuteQuery('UPDATE Commentaire SET idArticle=?,Login=?,Texte=? WHERE id=?', 
+		$statement = DataBaseManager::getInstance()->prepareAndExecuteQuery('UPDATE Commentaire SET idArticle=?,login=?,texte=? WHERE idCom=?', 
 			array(
-                $commentaire->getIdCom(),
-                $commentaire->getIdArticle(),
+                
+                                $commentaire->getIdArticle(),
 				$commentaire->getIdLogin(),
-				$commentaire->getIdTexte()
+				$commentaire->getIdTexte(),
+                                $commentaire->getIdCom()
 			)
 		);
 
@@ -128,7 +161,7 @@ class CommentaireGateway{
 		$commentaire = self::getCommentaireById($dataError,$idCom);
 
 		if (empty($dataError)) {
-			$statement = DataBaseManager::getInstance()->prepareAndExecuteQuery('DELETE FROM Personnage WHERE idCom=?',array($idCom));
+			$statement = DataBaseManager::getInstance()->prepareAndExecuteQuery('DELETE FROM Commentaire WHERE idCom=?',array($idCom));
 			if ($statement == false) {
 				$dataError['persistance-get'] = "Probleme d'exécution de la requête.";
 			}

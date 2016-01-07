@@ -333,3 +333,11 @@ margin:0 auto 20px auto ;
 font-size: 250%;
 }
 
+
+#images-box{
+    position: relative;
+    -webkit-box-align:center;
+    -webkit-box-pack:center;
+    display:-webkit-box;
+}
+

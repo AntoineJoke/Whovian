@@ -41,7 +41,6 @@ class ArticleGateway{
 		try {
 			
 			$statement = DataBaseManager::getInstance()->prepareAndExecuteQuery('SELECT * FROM Article', array());
-
 		} catch (Exception $e) {
 			$dataError['persistance-get'] = "Impossible d'accéder aux données.";
 		}

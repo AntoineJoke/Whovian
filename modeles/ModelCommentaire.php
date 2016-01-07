@@ -5,7 +5,7 @@ $modeleDirectory = dirname(__FILE__)."/";
 require_once($modeleDirectory.'/Model.php');
 
 
-class ModelArticle extends Model
+class ModelCommentaire extends Model
 {
 	private $commentaire;
 	private $title;
@@ -27,7 +27,7 @@ class ModelArticle extends Model
 
 	public static function getModelCommentaire($idCom){
 		$model = new self(array());
-		$model->commentaire = ArticleGateway::getCommentaireById($model->dataError, $idCom);
+		$model->commentaire = CommentaireGateway::getCommentaireById($model->dataError, $idCom);
 		$model->title = "Commentaire détaillé";
 		return $model;
 	}
@@ -50,9 +50,9 @@ class ModelArticle extends Model
 
 	public static function deleteCommentaire($idCom){
 		$model = new self(array());
-		$model->commentaire = CommentaireGateway::deleteArticle($model->dataError, $idCom);
+		$model->commentaire = CommentaireGateway::deleteCommentaire($model->dataError, $idCom);
 		$model->title = "Commentaire supprimée";
-		return $model;
+		return $model->commentaire;
 	}
 }
 ?>

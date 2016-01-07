@@ -15,12 +15,27 @@ class ModelCollectionCommentaire extends Model
 		$this->collectionCommentaire=array();
 		$this->dataError = array();
 	}
-
+        
+        public static function getModelCommentaireAllByIdArticle($idArticle){
+		$model = new self(array());
+		$model->collectionCommentaire = CommentaireGateway::getCommentaireAllByIdArticle($model->dataError,$idArticle);
+		return $model;
+	}
+        
 	public static function getModelCommentaireAll(){
 		$model = new self(array());
 		$model->collectionCommentaire = CommentaireGateway::getCommentaireAll($model->dataError);
 		return $model;
 	}
+        
+        public static function deleteModelCommentaireAllByIdArticle($idArticle) {
+            $model = new self(array());
+            $model->collectionCommentaire = CommentaireGateway::getCommentaireAllByIdArticle($model->dataError,$idArticle);
+            foreach ($model->getData() as $commentaire) {
+                ModelCommentaire::deleteCommentaire($commentaire->getIdCom());
+            }
+            
+        }
 }
 
 ?>

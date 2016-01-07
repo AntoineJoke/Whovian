@@ -15,14 +15,14 @@ class Commentaire{
 	use CommentaireProperties;
 
 	public function __construct($idCom,$idArticle,$login,$texte){
-		$this->setId($idCom);
-		$this->setTitre($idArticle);
+		$this->setIdCom($idCom);
+		$this->setIdArticle($idArticle);
 		$this->setLogin($login);
 		$this->setTexte($texte);
 	} 
 
-	public static function getDefaultArticle(){ 
-		$commentaire=new Article("0000","0000"," "," ");
+	public static function getDefaultCommentaire(){ 
+		$commentaire=new Commentaire(" "," "," "," ");
 		return $commentaire;
 	}
 

@@ -40,8 +40,9 @@ class Controleur{
 						break;
 
 					case "get-news":
-						$id = filter_var($_REQUEST['id'],FILTER_SANITIZE_NUMBER_INT);
-						$modele = ModelArticle::getModelArticle($id);
+						$idArticle = filter_var($_REQUEST['id'],FILTER_SANITIZE_NUMBER_INT);
+						$modele = ModelArticle::getModelArticle($idArticle);
+                                                $listCom= ModelCollectionCommentaire::getModelCommentaireAllByIdArticle($idArticle);
 						require(Config::getVues()["afficheArticle"]);
 						break;
 
@@ -68,11 +69,11 @@ class Controleur{
 						break;
 
 					case "post-news":
-                        require (dirname(__FILE__)."/retrieveInputsArticle.php");
+                                                require (dirname(__FILE__)."/retrieveInputsArticle.php");
 						require (dirname(__FILE__)."/validationArticle.php");
 						$modele = ModelArticle::getModelArticlePost($id,$titre,$urlImage,$texte);
 						if ($modele->getError()==false) {
-							require(Config::getVues()["afficheArticle"]);
+							require(Config::getVues()["afficheCollectionArticle"]);
 						}else{
 
 							require(Config::getVuesErreur()["editionArticle"]);
@@ -80,11 +81,12 @@ class Controleur{
 						break;
 
 					case "put-news":
-                        require (dirname(__FILE__)."/retrieveInputsArticle.php");
+                                                require (dirname(__FILE__)."/retrieveInputsArticle.php");
 						require (dirname(__FILE__)."/validationArticle.php");
-						$modele = ModelArticle::getModelArticlePut($id,$titre,$urlImage,$texte);
+						$modele = ModelArticle::getModelArticlePut($titre,$urlImage,$texte);
 						if ($modele->getError()==false) {
-							require(Config::getVues()["afficheArticle"]);
+                                                        $modele = ModelCollectionArticle::getModelArticleAll();
+							require(Config::getVues()["afficheCollectionArticle"]);
 						}else{
 							require(Config::getVuesErreur()["saisieArticle"]);
 						}
@@ -92,12 +94,32 @@ class Controleur{
 
 					case "delete-news":
 						$id = filter_var($_REQUEST['id'],FILTER_SANITIZE_NUMBER_INT);
+                                                ModelCollectionCommentaire::deleteModelCommentaireAllByIdArticle($id);
 						$modele = ModelArticle::deleteArticle($id);
 						if ($modele->getError()==false) {
-							require(Config::getVues()["afficheArticle"]);
+							require(Config::getVues()["suppArticle"]);
 						}else{
 							require(Config::getVuesErreur()["default"]);
 						}
+						break;
+
+					case "put-com":
+                                                require (dirname(__FILE__)."/retrieveInputsCommentaire.php");
+						require (dirname(__FILE__)."/validationCommentaire.php");
+						$com = ModelCommentaire::getModelCommentairePut($idCom,$idArticle,$login,$texte);
+                                                $modele = ModelArticle::getModelArticle($idArticle);
+                                                $listCom= ModelCollectionCommentaire::getModelCommentaireAllByIdArticle($idArticle);
+                                                require(Config::getVues()["afficheArticle"]);
+						break;
+                                                
+                                        case "delete-com":
+						$idCom = filter_var($_REQUEST['idCom'],FILTER_SANITIZE_NUMBER_INT);
+						$com = ModelCommentaire::deleteCommentaire($idCom);
+                                                $idArticle=$com->getIdArticle();
+                                                $modele = ModelArticle::getModelArticle($idArticle);
+                                                $listCom= ModelCollectionCommentaire::getModelCommentaireAllByIdArticle($idArticle);
+                                                require(Config::getVues()["afficheArticle"]);
+
 						break;
 
 					case "get":

@@ -12,7 +12,7 @@ trait CommentaireProperties{
 	}
 
 	public function getLogin(){
-		return $this->Login;
+		return $this->login;
 	}
 
 	public function getTexte(){
