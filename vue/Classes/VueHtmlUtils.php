@@ -16,6 +16,9 @@ class VueHtmlUtils{
 		echo '<div id="wrap">';
 		echo '<header>';
 		echo '<h1>Whovian</h1>';
+		if(isset($_SESSION['login'])){
+			echo "<h2 id=\"admin\"> Master Powers </h2>";
+		}
 		echo '<nav>';
 		echo '<ul>';
 		echo '<li class="menu"><a href="index.php">Accueil</a></li>';
